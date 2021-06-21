@@ -1,4 +1,4 @@
-package DataStructures;
+package org.cse222.DataStructures;
 
 /** Abstract base class for graphs. A graph is a set
  *   of vertices and a set of edges. Vertices are

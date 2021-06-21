@@ -1,4 +1,8 @@
+package org.cse222;
+
+import javax.print.Doc;
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 /**
  * All needed data are
@@ -11,22 +15,22 @@ public class Database {
      * Doctors stored in database in
      * a ArrayList.
      */
-    private ArrayList<Doctor> doctors;
+    private Hashtable<Integer,Doctor> doctors;
 
     /**
      * Needed objects will be added.
      */
     public Database(){
-        doctors = new ArrayList<>();
+        doctors = new Hashtable<>();
     }
 
-    public ArrayList<Integer> searchByNameAndSurname(String name, String surname){
-        ArrayList<Integer> foundDoctors = new ArrayList<>();
+    public Hashtable<Integer, Doctor> searchByNameAndSurname(String name, String surname){
+        Hashtable<Integer, Doctor> foundDoctors = new Hashtable<>();
 
         for (int i = 0; i < doctors.size(); i++) {
             if (doctors.get(i).getName().equals(name)
             && doctors.get(i).getSurName().equals(surname)){
-                foundDoctors.add(i);
+                foundDoctors.put(i,doctors.get(i));
             }
         }
 
@@ -34,11 +38,11 @@ public class Database {
     }
 
 
-    public ArrayList<Doctor> getDoctors() {
+    public Hashtable<Integer, Doctor> getDoctors() {
         return doctors;
     }
 
-    public void setDoctors(ArrayList<Doctor> doctors) {
+    public void setDoctors(Hashtable<Integer, Doctor> doctors) {
         this.doctors = doctors;
     }
 }

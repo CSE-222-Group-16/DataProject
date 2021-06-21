@@ -1,3 +1,5 @@
+package org.cse222.DataStructures;
+
 /** An interface for HashMap
  *  @author Koffman and Wolfgang
  */

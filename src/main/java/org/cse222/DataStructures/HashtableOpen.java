@@ -1,3 +1,5 @@
+package org.cse222.DataStructures;
+
 /** Hash table implementation using open addressing.
  *  @author Koffman and Wolfgang
  */

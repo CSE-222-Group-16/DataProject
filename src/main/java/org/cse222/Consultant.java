@@ -1,3 +1,5 @@
+package org.cse222;
+
 import java.util.ArrayList;
 
 public class Consultant extends Person{
@@ -47,9 +49,12 @@ public class Consultant extends Person{
      * @param newDoctor
      */
     public void patientRegistration(Patient newPatient,Doctor newDoctor){
-
+        int neededDoctorIndex = -1;
         //I found needed doctor's place in database.
-        int neededDoctorIndex = databaseRef.getDoctors().indexOf(newDoctor);
+        for(int i = 0; i < databaseRef.getDoctors().size(); i++) {
+            if (databaseRef.getDoctors().get(i).equals(newDoctor))
+                neededDoctorIndex = i;
+        }
         databaseRef.getDoctors().get(neededDoctorIndex).getPatientList().add(newPatient);
 
         System.out.println("Patient: "
@@ -67,7 +72,7 @@ public class Consultant extends Person{
 
     public static void main(String[] args) {
         Database database = new Database();
-        database.getDoctors().add(new Doctor());
+        database.getDoctors().put(0,new Doctor());
         database.getDoctors().get(0).setName("Ali");
 
         Consultant consultant = new Consultant(database);

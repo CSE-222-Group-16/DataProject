@@ -1,4 +1,4 @@
-package DataStructures;
+package org.cse222.DataStructures;
 
 import java.util.Arrays;
 import java.util.Random;

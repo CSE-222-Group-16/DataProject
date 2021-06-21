@@ -1,3 +1,5 @@
+package org.cse222.DataStructures;
+
 import java.io.*;
 
 /** Class for a binary tree that stores type E objects.

@@ -1,10 +1,12 @@
+package org.cse222.DataStructures;
+
 import java.util.*;
 
 /** A hash table for storing set elements using open addressing.
 *   @author Koffman and Wolfgang
 * */
 
-public class HashSetOpen {
+public class HashSetOpen<K,V> {
   private KWHashMap<K, V> setMap = new HashtableOpen<K, V>();
 
   /** Adapter method contains.
@@ -23,7 +25,7 @@ public class HashSetOpen {
   public boolean add(K key) {
     /* HashtableOpen.put returns null if the
        key is not a duplicate. */
-    return (setMap.put(key, key) == null);
+    return (setMap.put(key, (V) key) == null);
   }
 
   /** Adapter method remove.
@@ -33,6 +35,6 @@ public class HashSetOpen {
   public boolean remove(Object key) {
     /* HashtableOpen.remove returns null if the
        key is not removed. */
-    return (setMap.remove() != null);
+    return (setMap.remove(key) != null);
   }
 }

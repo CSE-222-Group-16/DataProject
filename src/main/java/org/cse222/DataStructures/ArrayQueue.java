@@ -1,3 +1,5 @@
+package org.cse222.DataStructures;
+
 import java.util.*;
 
 /** Implements the Queue interface using a circular array.
@@ -167,7 +169,7 @@ public class ArrayQueue < E >
       return returnValue;
     }
 
-    /** Remove the item accessed by the Iter object – not implemented. */
+    /** Remove the item accessed by the Iter object ï¿½ not implemented. */
     public void remove() {
       throw new UnsupportedOperationException();
     }

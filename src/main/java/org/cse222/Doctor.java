@@ -1,6 +1,5 @@
-package org.cse222;
-
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Queue;
 
 public class Doctor extends Person{
@@ -25,7 +24,7 @@ public class Doctor extends Person{
     /**
      * this is doctor working this day or not
      */
-    private Queue<Integer> patientList;
+    private Queue<Patient> patientList;
 
     private int blockNumber;
 
@@ -40,6 +39,7 @@ public class Doctor extends Person{
         this.dayOff=false;
         this.blockNumber=0;
         this.layerNumber=0;
+        patientList = new LinkedList<>();
     }
 
 
@@ -108,6 +108,13 @@ public class Doctor extends Person{
         return this.investigatePatient;
     }
 
+    public Queue<Patient> getPatientList() {
+        return patientList;
+    }
+
+    public void setPatientList(Queue<Patient> patientList) {
+        this.patientList = patientList;
+    }
 
     /**
      * empty right now it will assign day of value
@@ -115,5 +122,7 @@ public class Doctor extends Person{
     public void requestDayOff(){
 
     }
+
+
 
 }

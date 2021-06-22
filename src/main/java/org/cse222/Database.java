@@ -45,4 +45,12 @@ public class Database {
     public void setDoctors(Hashtable<Integer, Doctor> doctors) {
         this.doctors = doctors;
     }
+    
+    public Patient getPatientByName(String name){
+        for(Integer d: doctors.keySet())
+            for(Patient ret:doctors.get(d).getPatientList())
+                if(ret.getName()==name)
+                    return ret;
+        return null;
+    }
 }

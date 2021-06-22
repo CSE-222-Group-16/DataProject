@@ -11,34 +11,34 @@ public class Person implements PersonInterface{
     /**
      * person name
      */
-    private String name;
+    protected String name;
 
     /**
      * this is unique id for person
      */
-    private int id;
+    protected int id;
 
     /**
      * person surname
      */
-    private String surName;
+    protected String surName;
 
     /**
      * person age
      */
-    private int age;
+    protected int age;
 
     /**
      * person gender like male or female
      */
-    private char gender;
+    protected char gender;
 
     /**
      * person address
      */
-    private Address address;
+    protected Address address;
 
-    private boolean dayOff;
+    protected boolean dayOff;
 
     /**
      * no parameter constructor

@@ -6,7 +6,7 @@ import java.util.Queue;
 public class Doctor extends Person {
 
 
-    private final boolean dayOff;
+    private boolean dayOff;
     /**
      * this is office number or name for working who doctor
      */
@@ -123,13 +123,19 @@ public class Doctor extends Person {
         this.patientList = patientList;
     }
 
+    public boolean getDayOff() {
+        return dayOff;
+    }
+
+    @Override
+    public void setDayOff(boolean dayOff) {
+        this.dayOff = dayOff;
+    }
+
     /**
      * empty right now it will assign day of value
      */
     public void requestDayOff(){
-
+        this.dayOff = true;
     }
-
-
-
 }

@@ -17,6 +17,9 @@ public class Database {
      */
     private Hashtable<Integer,Doctor> doctors;
 
+    private ArrayList<Consultant> consultants;
+
+
     /**
      * Needed objects will be added.
      */
@@ -52,5 +55,13 @@ public class Database {
                 if(ret.getName()==name)
                     return ret;
         return null;
+    }
+
+    public ArrayList<Consultant> getConsultants() {
+        return consultants;
+    }
+
+    public void setConsultants(ArrayList<Consultant> consultants) {
+        this.consultants = consultants;
     }
 }

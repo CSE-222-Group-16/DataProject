@@ -78,7 +78,7 @@ public class Doctor extends Person {
         this.investigatePatient=nextPatientId;
     }
 
-    public void makeRecipe(Patient patient, ArrayList<String> recipeList){
+    public void makeRecipe(Patient patient, ArrayList<Medicine> recipeList){
 
         for(int i=0;i<recipeList.size();++i){
             patient.addRecipe(recipeList.get(i));
@@ -98,8 +98,6 @@ public class Doctor extends Person {
     public void addSurgery(Operation op){
         this.surgeryList.add(op.getId());
     }
-
-
 
     public int getBlockNumber(){
         return this.blockNumber;

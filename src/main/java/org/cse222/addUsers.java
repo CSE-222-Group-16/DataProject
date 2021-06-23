@@ -38,4 +38,44 @@ public class addUsers {
 
         database.setConsultants(consultants);
     }
+
+    /**
+     * For pharmacist and pharmacy
+     * @param databaseRef
+     */
+    public void addMedicinePharmacy(Database database){
+        ArrayList<Medicine> medicines = new ArrayList<>();
+        medicines.add(new Medicine(1, "Parol", 0, null, 100, database));
+        medicines.add(new Medicine(2, "Calpol", 0, null, 10, database));
+        medicines.add(new Medicine(3, "Aspirin", 0, null, 5, database));
+        medicines.add(new Medicine(4, "Majezik", 0, null, 8, database));
+        medicines.add(new Medicine(5, "Dikloron", 0, null, 45, database));
+        medicines.add(new Medicine(6, "Akineton", 0, null, 40, database));
+        medicines.add(new Medicine(7, "Mestobran", 0, null, 3, database));
+        medicines.add(new Medicine(8, "Sotarmen", 0, null, 1, database));
+        medicines.add(new Medicine(9, "Metamil", 0, null, 6, database));
+        medicines.add(new Medicine(10, "Flagyl", 0, null, 7, database));
+
+        database.setMedicinePharmacy(medicines);
+    }
+
+    /**
+     * For Patient
+     * @param databaseRef
+     */
+    public void addMedicinePatient(Database database){
+        ArrayList<Medicine> medicines = new ArrayList<>();
+        medicines.add(new Medicine(1, "Parol", 2, "Sabah Akşam Aç Karnı", 0, database));
+        medicines.add(new Medicine(2, "Calpol", 3, "Günde 3 Öğün Tok Karnı", 0, database));
+        medicines.add(new Medicine(3, "Aspirin", 1, "Sabahları Aç Karnı", 0, database));
+        medicines.add(new Medicine(4, "Majezik", 1, "Sabah Akşam Tok Karnı", 0, database));
+        medicines.add(new Medicine(5, "Dikloron", 2, "Günde 3 Öğün Aç Karnı", 0, database));
+        medicines.add(new Medicine(6, "Akineton", 3, "Günde 1 Tok Karnı", 0, database));
+        medicines.add(new Medicine(7, "Mestobran", 2, "Günde 1 Aç Karnı", 0, database));
+        medicines.add(new Medicine(8, "Sotarmen", 1, "Sabahları Tok Karnı", 0, database));
+        medicines.add(new Medicine(9, "Metamil", 2, "Akşam Tok Karnı", 0, database));
+        medicines.add(new Medicine(10, "Flagyl", 1, "Akşam Aç Karnı", 0, database));
+
+        database.setMedicinePatient(medicines);
+    }
 }

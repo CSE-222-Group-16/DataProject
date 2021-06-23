@@ -10,6 +10,8 @@ public class Main {
         addUsers addUser = new addUsers();
         addUser.addConsultant(database);
         addUser.addDoctors(database);
+        addUser.addMedicinePatient(database);
+        addUser.addMedicinePharmacy(database);
 
         System.out.println(database.getDoctors().size());
         System.out.println(database.getConsultants().size());
@@ -27,8 +29,6 @@ public class Main {
                 System.out.println("------LOGIN PAGE-------");
                 System.out.println("Enter ID:");
                 int id = sc.nextInt();
-                //System.out.println("Enter Password:");
-                //String password = sc.nextLine();
 
                 Person loginPerson = new Person();
                 loginPerson = database.findUser(id);
@@ -40,7 +40,7 @@ public class Main {
 
                     } else if (loginPerson.getJobType() == JobType.ChiefPhysician){
 
-                    }else if(loginPerson.getJobType() == JobType.Consultant){
+                    } else if(loginPerson.getJobType() == JobType.Consultant){
 
                     } else if (loginPerson.getJobType() == JobType.Nurse) {
 
@@ -48,20 +48,18 @@ public class Main {
 
                     } else if (loginPerson.getJobType() == JobType.TechnicianWorker){
 
+                    } else {
+                        System.out.println("Undefined type!");
                     }
 
-                } else if(loginPerson == null){
+                } else {
 
                 }
-
-
-            }else {
+            } else {
                 return;
             }
-
-        }catch (Exception exception){
+        } catch (Exception exception){
             System.out.println(exception.toString());
         }
-
     }
 }

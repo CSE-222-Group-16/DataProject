@@ -19,6 +19,10 @@ public class Database {
 
     private ArrayList<Consultant> consultants;
 
+    private ArrayList<Medicine> medicinePharmacy;
+
+    private ArrayList<Medicine> medicinePatient;
+
     /**
      *     All Users List
      */
@@ -30,6 +34,8 @@ public class Database {
     public Database(){
         doctors = new Hashtable<>();
         consultants = new ArrayList<>();
+        medicinePatient = new ArrayList<>();
+        medicinePharmacy = new ArrayList<>();
         allUsers = new ArrayList<>();
     }
 
@@ -80,4 +86,21 @@ public class Database {
     public void setConsultants(ArrayList<Consultant> consultants) {
         this.consultants = consultants;
     }
+
+    public ArrayList<Medicine> getMedicinePharmacy(){
+        return medicinePharmacy;
+    }
+
+    public void setMedicinePharmacy(ArrayList<Medicine> medicines){
+        this.medicinePharmacy = medicines;
+    }
+
+    public ArrayList<Medicine> getMedicinePatient(){
+        return medicinePatient;
+    }
+
+    public void setMedicinePatient(ArrayList<Medicine> medicines){
+        this.medicinePatient = medicines;
+    }
+
 }

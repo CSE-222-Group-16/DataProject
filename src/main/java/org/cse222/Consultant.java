@@ -1,7 +1,5 @@
 package org.cse222;
 
-import java.util.ArrayList;
-
 public class Consultant extends Person{
 
     private int blockNumber;
@@ -49,24 +47,21 @@ public class Consultant extends Person{
      * @param newDoctor
      */
     public void patientRegistration(Patient newPatient,Doctor newDoctor){
-        int neededDoctorIndex = -1;
+
         //I found needed doctor's place in database.
-        for(int i = 0; i < databaseRef.getDoctors().size(); i++) {
-            if (databaseRef.getDoctors().get(i).equals(newDoctor))
-                neededDoctorIndex = i;
-        }
-        databaseRef.getDoctors().get(neededDoctorIndex).getPatientList().add(newPatient);
+        databaseRef.getDoctors().get(newDoctor.getId());
+        databaseRef.getDoctors().get(newPatient.getId()).getPatientList().add(newPatient);
 
         System.out.println("Patient: "
-                + databaseRef.getDoctors().get(neededDoctorIndex).getPatientList().peek().getId()
+                + databaseRef.getDoctors().get(newPatient.getId()).getPatientList().peek().getId()
                 +" "
-                + databaseRef.getDoctors().get(neededDoctorIndex).getPatientList().peek().getName()
+                + databaseRef.getDoctors().get(newPatient.getId()).getPatientList().peek().getName()
                 +" "
-                + databaseRef.getDoctors().get(neededDoctorIndex).getPatientList().peek().getSurName()
+                + databaseRef.getDoctors().get(newPatient.getId()).getPatientList().peek().getSurName()
                 +" Added to "
-                + databaseRef.getDoctors().get(neededDoctorIndex).getName()
+                + databaseRef.getDoctors().get(newPatient.getId()).getName()
                 +" "
-                + databaseRef.getDoctors().get(neededDoctorIndex).getSurName()
+                + databaseRef.getDoctors().get(newPatient.getId()).getSurName()
         );
     }
 

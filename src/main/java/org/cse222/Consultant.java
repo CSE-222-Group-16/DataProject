@@ -1,6 +1,7 @@
 package org.cse222;
+import java.util.ArrayList;
 
-public class Consultant extends Person{
+public class Consultant extends Person {
 
     private int blockNumber;
 
@@ -13,6 +14,7 @@ public class Consultant extends Person{
         super();
         this.blockNumber=0;
         this.layerNumber=0;
+        setJobType(JobType.Consultant);
     }
 
     public Consultant(Database database){
@@ -20,6 +22,8 @@ public class Consultant extends Person{
         this.blockNumber=0;
         this.layerNumber=0;
         databaseRef = database;
+        setJobType(JobType.Consultant);
+
     }
 
     public Consultant(String name, String surName, int age, char gender,
@@ -29,6 +33,8 @@ public class Consultant extends Person{
         this.blockNumber=blockNumber;
         this.layerNumber=layerNumber;
         databaseRef = database;
+        setJobType(JobType.Consultant);
+
     }
 
     public void ConsultantMenu(){
@@ -46,7 +52,7 @@ public class Consultant extends Person{
      * @param newPatient
      * @param newDoctor
      */
-    public void patientRegistration(Patient newPatient,Doctor newDoctor){
+    public void patientRegistration(Patient newPatient, Doctor newDoctor){
 
         //I found needed doctor's place in database.
         databaseRef.getDoctors().get(newDoctor.getId());
@@ -67,7 +73,7 @@ public class Consultant extends Person{
 
     public static void main(String[] args) {
         Database database = new Database();
-        database.getDoctors().put(0,new Doctor());
+        database.getDoctors().put(0,new Doctor(database));
         database.getDoctors().get(0).setName("Ali");
 
         Consultant consultant = new Consultant(database);

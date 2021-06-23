@@ -19,12 +19,28 @@ public class Database {
 
     private ArrayList<Consultant> consultants;
 
+    /**
+     *     All Users List
+     */
+    private ArrayList<Person> allUsers;
 
     /**
      * Needed objects will be added.
      */
     public Database(){
         doctors = new Hashtable<>();
+        consultants = new ArrayList<>();
+        allUsers = new ArrayList<>();
+    }
+
+    /**
+     * Adds all user in a one Person List
+     */
+    public void allUsersP(){
+        allUsers.addAll(doctors.values());
+        allUsers.addAll(consultants);
+        System.out.println(allUsers.get(allUsers.size()-1).getJobType());
+
     }
 
     public Hashtable<Integer, Doctor> searchByNameAndSurname(String name, String surname){

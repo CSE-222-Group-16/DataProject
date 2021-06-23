@@ -1,13 +1,12 @@
 package org.cse222;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Doctor extends Person{
+public class Doctor extends Person {
 
 
-    private boolean dayOff;
+    private final boolean dayOff;
     /**
      * this is office number or name for working who doctor
      */
@@ -33,7 +32,10 @@ public class Doctor extends Person{
     private int layerNumber;
 
 
-    public Doctor(){
+
+    Database databaseRef;
+
+    public Doctor(Database database){
         super();
         this.officeNumber=0;
         this.investigatePatient=0;
@@ -42,10 +44,13 @@ public class Doctor extends Person{
         this.blockNumber=0;
         this.layerNumber=0;
         patientList = new LinkedList<>();
+        databaseRef = database;
+        this.setJobType(JobType.Doctor);
     }
 
 
-    public Doctor(String name, String surName, int age, char gender, Address address, int id, int officeName,int blockNumber, int layerNumber){
+    public Doctor(String name, String surName, int age, char gender, Address address, int id,
+                  int officeName, int blockNumber, int layerNumber, Database database){
         super(name, surName, age, gender, address, id);
         this.officeNumber=officeName;
         this.investigatePatient=0;
@@ -53,6 +58,8 @@ public class Doctor extends Person{
         this.dayOff=false;
         this.blockNumber=blockNumber;
         this.layerNumber=layerNumber;
+        this.setJobType(JobType.Doctor);
+        databaseRef = database;
     }
 
     public void setOfficeNumber(int officeNumber){
@@ -92,14 +99,7 @@ public class Doctor extends Person{
         this.surgeryList.add(op.getId());
     }
 
-    public boolean getDayOff() {
-        return dayOff;
-    }
 
-    @Override
-    public void setDayOff(boolean dayOff) {
-        this.dayOff = dayOff;
-    }
 
     public int getBlockNumber(){
         return this.blockNumber;
@@ -129,12 +129,9 @@ public class Doctor extends Person{
      * empty right now it will assign day of value
      */
     public void requestDayOff(){
-        this.dayOff = true;
+
     }
 
-    public static void main(String args[]){
-        Doctor doctor = new Doctor();
 
-        doctor.requestDayOff();
-    }
+
 }

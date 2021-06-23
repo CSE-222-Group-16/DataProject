@@ -1,5 +1,7 @@
 package org.cse222;
 import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.PriorityQueue;
 
 public class Consultant extends Person {
 
@@ -70,7 +72,7 @@ public class Consultant extends Person {
                 + databaseRef.getDoctors().get(newPatient.getId()).getSurName()
         );
     }
-
+/*
     public static void main(String[] args) {
         Database database = new Database();
         database.getDoctors().put(0,new Doctor(database));
@@ -86,6 +88,14 @@ public class Consultant extends Person {
         System.out.println(database.getDoctors().get(0).getPatientList().size());
 
 
+    }*/
+    
+    
+    public void addPatientEmergency(PriorityQueue<Patient> p1 , int patientId , Hashtable<Integer,Patient> arPt , int urg) {
+    	Patient pt = arPt.get(patientId);
+    	pt.setUrg(urg);
+    	p1.add(pt);
+    	
     }
 
 

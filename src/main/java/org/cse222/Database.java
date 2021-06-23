@@ -4,6 +4,8 @@ import javax.print.Doc;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
+
+
 /**
  * All needed data are
  * stored here. All objects
@@ -16,7 +18,11 @@ public class Database {
      * a ArrayList.
      */
     private Hashtable<Integer,Doctor> doctors;
-
+    
+    
+    private Hashtable<Integer,Patient> patients;
+    
+    
     private ArrayList<Consultant> consultants;
 
     /**
@@ -31,6 +37,7 @@ public class Database {
         doctors = new Hashtable<>();
         consultants = new ArrayList<>();
         allUsers = new ArrayList<>();
+        patients = new Hashtable<Integer,Patient>();
     }
 
     /**
@@ -61,6 +68,10 @@ public class Database {
         return doctors;
     }
 
+    public Hashtable<Integer,Patient> getPatients(){
+    	return patients;
+    }
+    
     public void setDoctors(Hashtable<Integer, Doctor> doctors) {
         this.doctors = doctors;
     }
@@ -80,4 +91,18 @@ public class Database {
     public void setConsultants(ArrayList<Consultant> consultants) {
         this.consultants = consultants;
     }
+    
+    public void addPatient(Patient pt) {
+    	if( pt != null ) {
+    		patients.put(pt.getId() ,pt);
+    	}
+    		
+    }
+    
+    
+    
+    public void addConsultants( Consultant cs ) {
+    	consultants.add(cs);
+    }
+    
 }

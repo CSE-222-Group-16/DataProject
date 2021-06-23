@@ -20,6 +20,8 @@ public class Patient extends Person {
     private boolean NeedInjection;
 
     private boolean needSerum;
+    
+    private int urg;
 
 
     public Patient(){
@@ -31,6 +33,7 @@ public class Patient extends Person {
         this.NeedInjection=false;
         this.needSerum=false;
         this.roomNumber=0;
+        this.urg = 0;
     }
 
     public Patient(String name, String surName, int age, char gender, Address address, int id, boolean stayHospitalOrNot, int roomNumber, boolean needSerum, boolean NeedInjection){
@@ -99,4 +102,13 @@ public class Patient extends Person {
     public boolean getNeedInjection(){
         return this.NeedInjection;
     }
+    
+    public int getUrg() {
+    	return urg;
+    }
+    public void setUrg(int urg) {
+    	this.urg = urg;
+    }
+    
+    
 }

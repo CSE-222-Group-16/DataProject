@@ -34,6 +34,11 @@ public class Admin extends Person {
     	newTechnicianWorker.setblockNumber(blockNumber);
     	
     }
+    
+    public void addDoctor(HashTable<> ) {
+    	
+    }
+    
 
 
 }

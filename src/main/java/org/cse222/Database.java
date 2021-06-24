@@ -34,19 +34,6 @@ public class Database {
 
     
     
-    public TreeMap<Integer, Doctor> getDoctors() {
-        return doctors;
-    }
-    
-    public void setDoctors(TreeMap<Integer, Doctor> doctors) {
-        this.doctors = doctors;
-    }
-    
-    
-    
-    
-    
-    
     
     
     

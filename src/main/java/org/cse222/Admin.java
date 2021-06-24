@@ -1,15 +1,15 @@
 import java.util.Scanner;
 
 public class Admin extends Person {
-    
+
     Database databaseRef;
-    
+
     public Admin(Database database){
         super();
         databaseRef = database;
     }
 
-    public Admin(String name, String surName, int age, char gender, 
+    public Admin(String name, String surName, int age, char gender,
                  Address address, int id,Database database){
         super(name, surName, age, gender, address, id);
         databaseRef = database;
@@ -59,8 +59,8 @@ public class Admin extends Person {
             Scanner reader = new Scanner(System.in);
 
             menuOpt = reader.nextLine();
-            
-            
+
+
             if(menuOpt.equalsIgnoreCase("1")) ;
             else if(menuOpt.equalsIgnoreCase("2")) {
                 System.out.println("Enter Nurse ID:");
@@ -69,15 +69,48 @@ public class Admin extends Person {
                 int block = reader.nextInt();
                 System.out.println("Enter Layer No:");
                 int layer  = reader.nextInt();
-                
+
                 databaseRef.findNurse(new Nurse(id,databaseRef)).setBlockNumber(block);
                 databaseRef.findNurse(new Nurse(id,databaseRef)).setLayerNumber(layer);
-                
-		//Print Result
+
                 System.out.println(databaseRef.findNurse(new Nurse(id,databaseRef)).toString());
 
+            } else if (menuOpt.equalsIgnoreCase("3")){
+                System.out.println("Enter Consultant ID:");
+                int id = reader.nextInt();
+                System.out.println("Enter Block No:");
+                int block = reader.nextInt();
+                System.out.println("Enter Floor No:");
+                int floor  = reader.nextInt();
+
+                databaseRef.getConsultants().get(databaseRef.getConsultants().indexOf(new Consultant(id,databaseRef))).setBlockNumber(block);
+                databaseRef.getConsultants().get(databaseRef.getConsultants().indexOf(new Consultant(id,databaseRef))).setBlockNumber(floor);
+
+                System.out.println(databaseRef.getConsultants().get(databaseRef.getConsultants().indexOf(new Consultant(id,databaseRef))).toString());
+            } else if (menuOpt.equalsIgnoreCase("4")){
+                System.out.println("Enter Doctor ID:");
+                int id = reader.nextInt();
+                System.out.println("Enter Block No:");
+                int block = reader.nextInt();
+                System.out.println("Enter Floor No:");
+                int floor  = reader.nextInt();
+
+                databaseRef.getDoctors().get(id).setBlockNumber(block);
+                databaseRef.getDoctors().get(id).setBlockNumber(floor);
+                
+                System.out.println( databaseRef.getDoctors().get(id).toString());
             }
             else if(menuOpt.equalsIgnoreCase("back")) break;
             else System.out.println("Unrecognized option. Try again.");
         }
     }
+
+
+
+
+
+
+
+
+
+}

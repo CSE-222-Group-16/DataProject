@@ -23,13 +23,17 @@ public class Database {
 
     private ArrayList<Medicine> medicinePatient;
     
-    private GraphADT<Block> blockStructureGraph;
+ /*   private GraphADT<Block> blockStructureGraph;  */
     
-    private ArrayList<Integer> floors;
+    /*  private ArrayList<Integer> floors; */
     
     private SkipList<PatientRecord> patientRecords;
     
     private AVLTree<Person> allPatients ;
+    
+    private PriorityQueue<Patient> emergencyPatients;
+    
+   
 
    
 
@@ -42,13 +46,37 @@ public class Database {
         medicinePatient = new ArrayList<>();
         medicinePharmacy = new ArrayList<>();
         patientRecords = new SkipList<>();
-        allPatients = new AVLTree<>();        
-        floors = new ArrayList<>();
-        floors.add(1); floors.add(2); floors.add(3);floors.add(4);floors.add(4);
+        allPatients = new AVLTree<>();     
+        emergencyPatients = new PriorityQueue();
+    /*    floors = new ArrayList<>();   */
+    /*    floors.add(1); floors.add(2); floors.add(3);floors.add(4);floors.add(4);
         Block[] blocks = new Block[]{new Block (1,floors),new Block (2,floors),new Block (3,floors)};
-        blockStructureGraph = new AdjacencyListMatrix<> (3,false,blocks);
+        blockStructureGraph = new AdjacencyListMatrix<> (3,false,blocks);   */
     }
 
+    
+    public Hashtable<Integer, Doctor> getDoctors() {
+        return doctors;
+    }
+    
+    public void setDoctors(Hashtable<Integer, Doctor> doctors) {
+        this.doctors = doctors;
+    }
+    
+    
+    public void createDoctor() {
+    	doctors.put(000001,new Doctor("John","John",20,'m',new Address(),000001));
+    	doctors.put(000002,new Doctor("Nick","John",20,'m',new Address(),000002));
+    }
+    
+    
+    
+    
+    /*-------------------------------------------------*/
+    
+    
+    
+    
     /**
      * Adds all user in a one Person List
      */
@@ -82,13 +110,9 @@ public class Database {
     }
 
 
-    public Hashtable<Integer, Doctor> getDoctors() {
-        return doctors;
-    }
+   
 
-    public void setDoctors(Hashtable<Integer, Doctor> doctors) {
-        this.doctors = doctors;
-    }
+    
     
     public Patient getPatientByName(String name){
         for(Integer d: doctors.keySet())

@@ -22,6 +22,10 @@ public class Database {
     private ArrayList<Medicine> medicinePharmacy;
 
     private ArrayList<Medicine> medicinePatient;
+    
+    private GraphADT<Block> blockStructureGraph;
+    
+    private ArrayList<Integer> floors;
 
     /**
      *     All Users List
@@ -37,6 +41,11 @@ public class Database {
         medicinePatient = new ArrayList<>();
         medicinePharmacy = new ArrayList<>();
         allUsers = new ArrayList<>();
+        
+        floors = new ArrayList<>();
+        floors.add(1); floors.add(2); floors.add(3);floors.add(4);floors.add(4);
+        Block[] blocks = new Block[]{new Block (1,floors),new Block (2,floors),new Block (3,floors)};
+        blockStructureGraph = new AdjacencyListMatrix<> (3,false,blocks);
     }
 
     /**
@@ -101,6 +110,17 @@ public class Database {
 
     public void setMedicinePatient(ArrayList<Medicine> medicines){
         this.medicinePatient = medicines;
+    }
+    
+    public void createGraph(int blockNo,ArrayList<Integer> floor){
+        blockStructureGraph.setVertex (new Block (blockNo),new Block (blockNo,floor));
+    }
+
+    public void printHospital(){
+        Object[] blocks = blockStructureGraph.dfs ();
+        for (Object block : blocks) {
+            System.out.println (block);
+        }
     }
 
 }

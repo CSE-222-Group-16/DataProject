@@ -18,7 +18,7 @@ enum JobType {
  *
  * @author Samet
  */
-public class Person implements PersonInterface {
+public class Person implements PersonInterface,  Comparable<Person> {
 
     /**
      * person name
@@ -233,5 +233,10 @@ public class Person implements PersonInterface {
 
     public void setJobType(JobType jobType) {
         this.jobType = jobType;
+    }
+    
+    @Override
+    public int compareTo(Person o) {
+        return this.getId() - o.getId();
     }
 }

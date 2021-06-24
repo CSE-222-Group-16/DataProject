@@ -1,7 +1,8 @@
 package org.cse222;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Hashtable;
+import java.util.Map;
 
 public class Nurse extends Person {
 
@@ -90,9 +91,32 @@ public class Nurse extends Person {
     }
     */
 
+    public void giveInjectionToPatient(Hashtable<Integer,Patient> ptList){
 
-    public void giveInjectionToPatient(){
+        for (Map.Entry mapElement : ptList.entrySet()) {
 
+            Patient value = ((Patient)mapElement.getValue());
+            if(value.getNeedInjection()){
+                value.setNeedInjection(false);
+            }
+
+        }
+
+    }
+
+    /**
+     * look needSerumPatientsList and give serum all need patient
+     */
+    public void giveSerumToPatient(Hashtable<Integer,Patient> ptList){
+
+        for (Map.Entry mapElement : ptList.entrySet()) {
+
+            Patient value = ((Patient)mapElement.getValue());
+            if(value.getNeedSerum()){
+                value.setNeedSerum(false);
+            }
+
+        }
 
     }
 
@@ -100,13 +124,6 @@ public class Nurse extends Person {
      * look needInjectionPatientsList and do vaccinate all need patient
      */
     public void injection(){
-
-    }
-
-    /**
-     * look needSerumPatientsList and give serum all need patient
-     */
-    public void giveSerumToPatient(){
 
     }
 

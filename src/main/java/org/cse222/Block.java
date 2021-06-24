@@ -1,6 +1,8 @@
 package org.cse222;
 
 import java.util.ArrayList;
+import java.util.Objects;
+import java.util.TimeZone;
 
 public class Block {
 
@@ -74,5 +76,9 @@ public class Block {
         for ( k = 0; k < 45; k++) stringBuilder.append ("-");
         stringBuilder.append ("\n");
         return stringBuilder.toString ();
+    }
+
+    public Person getPersonalData() {
+        return null;
     }
 }

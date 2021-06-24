@@ -62,6 +62,10 @@ public class Doctor extends Person {
         databaseRef = database;
     }
 
+    public Doctor(String name, String surname, int age, char gender, Address address, int id) {
+        super(name, surname, age, gender, address, id);
+    }
+
     public void setOfficeNumber(int officeNumber){
         this.officeNumber=officeNumber;
     }

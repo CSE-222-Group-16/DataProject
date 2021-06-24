@@ -9,16 +9,16 @@ package org.cse222;/*
  * @author Samet
  */
 public interface PersonInterface {
-    public void setName(String name);
-    public void setSurName(String surName);
-    public void setAge(int age);
-    public void setGender(char gender);
-    public void setAddress(Address address);
-    public void setId(int id);
-    public String getName();
-    public String getSurName();
-    public int getAge();
-    public char getGender();
-    public Address getAddress();
-    public int getId();
+    void setName(String name);
+    void setSurName(String surName);
+    void setAge(int age);
+    void setGender(char gender);
+    void setAddress(Address address);
+    void setId(int id);
+    String getName();
+    String getSurName();
+    int getAge();
+    char getGender();
+    Address getAddress();
+    int getId();
 }

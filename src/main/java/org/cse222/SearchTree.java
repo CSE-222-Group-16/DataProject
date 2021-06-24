@@ -1,3 +1,4 @@
+package org.cse222;
 
 /** Interface to define a search tree
  *  @author Koffman and Wolfgang

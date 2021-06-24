@@ -1,5 +1,4 @@
 package org.cse222;
-import java.util.List;
 import java.util.Objects;
 
 enum JobType {
@@ -90,6 +89,10 @@ public class Person implements PersonInterface,  Comparable<Person> {
         this.address.setNumber(address.getNumber());
         jobType = JobType.Undeclared;
 
+    }
+
+    public Person(int id) {
+        this.id = id;
     }
 
     public void setDayOff(boolean dayOff) {

@@ -1,3 +1,5 @@
+package org.cse222;
+
 public class PatientRecord implements Comparable<PatientRecord>{
 
     /**
@@ -12,7 +14,7 @@ public class PatientRecord implements Comparable<PatientRecord>{
 
     private String date = null;
 
-    Patient patient;
+    private Patient patient;
 
 
     public PatientRecord(){
@@ -42,6 +44,10 @@ public class PatientRecord implements Comparable<PatientRecord>{
         ++recordId;
         id = recordId;
         this.date = date;
+    }
+
+    public PatientRecord(Person person, int doctorId) {
+
     }
 
     public int getDoctorId() {

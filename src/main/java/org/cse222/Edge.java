@@ -1,3 +1,4 @@
+package org.cse222;
 
 /**
  * Edge Class for Extended GraphADT.

@@ -1,5 +1,4 @@
 package org.cse222;
-import java.util.ArrayList;
 
 public class Consultant extends Person {
 
@@ -93,4 +92,11 @@ public class Consultant extends Person {
     }
 
 
+    public void setBlockNumber(int blockNumber) {
+        this.blockNumber = blockNumber;
+    }
+
+    public void setLayerNumber(int layerNumber) {
+        this.layerNumber = layerNumber;
+    }
 }

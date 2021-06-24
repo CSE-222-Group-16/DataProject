@@ -1,4 +1,4 @@
-package org.cse222;
+package org.cse222.DataStructures;
 
 /** This class extends the BinarySearchTree by adding the rotate
  *  operations. Rotation will change the balance of a search

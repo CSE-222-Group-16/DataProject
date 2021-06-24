@@ -22,81 +22,81 @@ public class Patient extends Person {
     private boolean needSerum;
 
 
-    public Patient(){
+    public Patient() {
         super();
-        this.recipeList=new ArrayList<Medicine>();
-        this.needAnalysis=new ArrayList<String>();
-        this.analysisResults=new ArrayList<String>();
-        this.stayHospitalOrNot=false;
-        this.NeedInjection=false;
-        this.needSerum=false;
-        this.roomNumber=0;
+        this.recipeList = new ArrayList<Medicine>();
+        this.needAnalysis = new ArrayList<String>();
+        this.analysisResults = new ArrayList<String>();
+        this.stayHospitalOrNot = false;
+        this.NeedInjection = false;
+        this.needSerum = false;
+        this.roomNumber = 0;
     }
 
-    public Patient(String name, String surName, int age, char gender, Address address, int id, boolean stayHospitalOrNot, int roomNumber, boolean needSerum, boolean NeedInjection){
+    public Patient(String name, String surName, int age, char gender, Address address, int id, boolean stayHospitalOrNot, int roomNumber, boolean needSerum, boolean NeedInjection) {
         super(name, surName, age, gender, address, id);
-        this.recipeList=new ArrayList<Medicine>();
-        this.needAnalysis=new ArrayList<String>();
-        this.analysisResults=new ArrayList<String>();
-        this.NeedInjection=NeedInjection;
-        this.needSerum=needSerum;
-        this.stayHospitalOrNot=stayHospitalOrNot;
-        this.roomNumber=roomNumber;
+        this.recipeList = new ArrayList<Medicine>();
+        this.needAnalysis = new ArrayList<String>();
+        this.analysisResults = new ArrayList<String>();
+        this.NeedInjection = NeedInjection;
+        this.needSerum = needSerum;
+        this.stayHospitalOrNot = stayHospitalOrNot;
+        this.roomNumber = roomNumber;
     }
 
-    public void setNeedSerum(boolean needSerum){
-        this.needSerum=needSerum;
+    public void setNeedSerum(boolean needSerum) {
+        this.needSerum = needSerum;
     }
 
-    public void setNeedInjection(boolean NeedInjection){
-        this.NeedInjection=NeedInjection;
-    }
-    
-    public void setRoomNumber(int roomNumber){
-        this.roomNumber=roomNumber;
+    public void setNeedInjection(boolean NeedInjection) {
+        this.NeedInjection = NeedInjection;
     }
 
-    public void setStayHospitalOrNot(boolean stayHospitalOrNot){
-        this.stayHospitalOrNot=stayHospitalOrNot;
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
     }
 
-    public void addRecipe(Medicine newRecipe){
+    public void setStayHospitalOrNot(boolean stayHospitalOrNot) {
+        this.stayHospitalOrNot = stayHospitalOrNot;
+    }
+
+    public void addRecipe(Medicine newRecipe) {
         recipeList.add(newRecipe);
     }
 
-    public void addAnalysis(String newAnalysis){
+    public void addAnalysis(String newAnalysis) {
         needAnalysis.add(newAnalysis);
     }
 
-    public void addAnalysisResults(String newAnalysisResult){
+    public void addAnalysisResults(String newAnalysisResult) {
         analysisResults.add(newAnalysisResult);
     }
 
-    public ArrayList<Medicine> getRecipeList(){
+    public ArrayList<Medicine> getRecipeList() {
         return this.recipeList;
     }
 
-    public ArrayList<String> getNeedAnalysis(){
+    public ArrayList<String> getNeedAnalysis() {
         return this.needAnalysis;
     }
 
-    public ArrayList<String> getAnalysisResults(){
+    public ArrayList<String> getAnalysisResults() {
         return this.analysisResults;
     }
 
-    public int getRoomNumber(){
+    public int getRoomNumber() {
         return this.roomNumber;
     }
 
-    public boolean getStayHospitalOrNot(){
+    public boolean getStayHospitalOrNot() {
         return this.stayHospitalOrNot;
     }
 
-    public boolean getNeedSerum(){
+    public boolean getNeedSerum() {
         return this.needSerum;
     }
 
-    public boolean getNeedInjection(){
+    public boolean getNeedInjection() {
         return this.NeedInjection;
     }
 }

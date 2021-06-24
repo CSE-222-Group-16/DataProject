@@ -39,10 +39,6 @@ public class addUsers {
         database.setConsultants(consultants);
     }
 
-    /**
-     * For pharmacist and pharmacy
-     * @param databaseRef
-     */
     public void addMedicinePharmacy(Database database){
         ArrayList<Medicine> medicines = new ArrayList<>();
         medicines.add(new Medicine(1, "Parol", 0, null, 100, database));
@@ -59,10 +55,6 @@ public class addUsers {
         database.setMedicinePharmacy(medicines);
     }
 
-    /**
-     * For Patient
-     * @param databaseRef
-     */
     public void addMedicinePatient(Database database){
         ArrayList<Medicine> medicines = new ArrayList<>();
         medicines.add(new Medicine(1, "Parol", 2, "Sabah Akşam Aç Karnı", 0, database));

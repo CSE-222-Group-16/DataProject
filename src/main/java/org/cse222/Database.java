@@ -1,8 +1,10 @@
 package org.cse222;
 
-import javax.print.Doc;
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.PriorityQueue;
+
+import org.cse222.DataStructures.*;
 
 /**
  * All needed data are
@@ -23,19 +25,15 @@ public class Database {
 
     private ArrayList<Medicine> medicinePatient;
     
- /*   private GraphADT<Block> blockStructureGraph;  */
-    
-    /*  private ArrayList<Integer> floors; */
+    private GraphADT<Block> blockStructureGraph;
+
+    private ArrayList<Integer> floors;
     
     private SkipList<PatientRecord> patientRecords;
     
     private AVLTree<Person> allPatients ;
-    
     private PriorityQueue<Patient> emergencyPatients;
-    
-   
-
-   
+    private AVLTree<Person> allUsers;
 
     /**
      * Needed objects will be added.
@@ -54,7 +52,6 @@ public class Database {
         blockStructureGraph = new AdjacencyListMatrix<> (3,false,blocks);   */
     }
 
-    
     public Hashtable<Integer, Doctor> getDoctors() {
         return doctors;
     }
@@ -77,6 +74,9 @@ public class Database {
     
     
     
+    public void printAll() {
+    }
+
     /**
      * Adds all user in a one Person List
      */

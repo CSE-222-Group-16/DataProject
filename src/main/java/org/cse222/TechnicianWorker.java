@@ -1,10 +1,16 @@
 package org.cse222;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class TechnicianWorker extends Person {
 
     private Database databaseRef;
+    private int blockNumber;
+
+    public void setblockNumber(int blockNumber) {
+        this.blockNumber = blockNumber;
+    }
 
     public class Menu{
         private Scanner reader = new Scanner(System.in);

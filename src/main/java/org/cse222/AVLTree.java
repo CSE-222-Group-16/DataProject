@@ -1,3 +1,6 @@
+package org.cse222;
+
+import org.cse222.BinarySearchTreeWithRotate;
 
 /** Self-balancing binary search tree using the algorithm defined
  *  by Adelson-Velskii and Landis.
@@ -6,7 +9,7 @@
 
 public class AVLTree < E
         extends Comparable < E >>
-        extends BinarySearchTreeWithRotate < E > {
+        extends BinarySearchTreeWithRotate< E > {
 
     // Insert nested class AVLNode<E> here.
     private int size=0;

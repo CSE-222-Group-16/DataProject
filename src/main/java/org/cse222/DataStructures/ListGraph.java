@@ -30,7 +30,7 @@ public class ListGraph extends AbstractGraph {
     }
     
     public void remove(Block source){
-        edges[source.getPersonalData().getID()].remove(source);
+        edges[source.getPersonalData().getId()].remove(source);
     }
     /** Determine whether an edge exists.
      @return true if there is an edge from source to dest
@@ -38,23 +38,23 @@ public class ListGraph extends AbstractGraph {
      * @param dest The destination vertex
      */
     public boolean isEdge(Block source, Block dest) {
-        return edges[source.getPersonalData().getID()].contains(new Edge<>(source, dest));
+        return edges[source.getPersonalData().getId()].contains(new Edge<>(source, dest));
     }
 
     /** Insert a new edge into the graph.
      * @param edge The new edge
      */
     public void insert(Edge<Block> edge) {
-        edges[edge.getSource().getPersonalData().getID()].add(edge);
+        edges[edge.getSource().getPersonalData().getId()].add(edge);
         if (!isDirected()) {
-            edges[edge.getDest().getPersonalData().getID()].add(new Edge<>(edge.getDest(),
+            edges[edge.getDest().getPersonalData().getId()].add(new Edge<>(edge.getDest(),
                     edge.getSource(),
                     edge.getWeight()));
         }
     }
 
     public Iterator < Edge <Block>> edgeIterator(Block source) {
-        return edges[source.getPersonalData().getID()].iterator();
+        return edges[source.getPersonalData().getId()].iterator();
     }
 
     /** Get the edge between two vertices. If an
@@ -66,7 +66,7 @@ public class ListGraph extends AbstractGraph {
      */
     public Edge<Block> getEdge(Block source, Block dest) {
         Edge<Block> target = new Edge<Block>(source, dest, Double.POSITIVE_INFINITY);
-        for (Edge<Block> edge : edges[source.getPersonalData().getID()]) {
+        for (Edge<Block> edge : edges[source.getPersonalData().getId()]) {
             if (edge.equals(target))
                 return edge; // Desired edge found, return it.
         }

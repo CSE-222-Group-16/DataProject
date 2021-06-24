@@ -32,6 +32,26 @@ public class Admin extends Person {
     	newTechnicianWorker.setblockNumber(blockNumber);
     	
     }
+	
+	private void menu(Personnel admin){
+		int k;
+		for ( k = 0; k < 45; k++) System.out.print("-");
+		System.out.print("\n"+"   ");
+		System.out.println("Welcome Admin! "+admin.name+" "+admin.surname);
+		for ( k = 0; k < 45; k++) System.out.print("-");
+		System.out.print("\n");
+		System.out.println("[1] Assign Nurse to the floor");
+		for ( k = 0; k < 45; k++) System.out.print("-");  System.out.println();
+		System.out.println("[2] Assign Consultant to the floor");
+		for ( k = 0; k < 45; k++) System.out.print("-");  System.out.println();
+		System.out.println("[3] Assign Doctor To Block");
+		for ( k = 0; k < 45; k++) System.out.print("-");  System.out.println();
+		System.out.println("[5] Add all users in system");
+		for ( k = 0; k < 45; k++) System.out.print("-");  System.out.println();
+		System.out.println("[0] Exit.");
+		for ( k = 0; k < 45; k++) System.out.print("-");
+		System.out.print("\n");
+	}
     
     
     

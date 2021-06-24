@@ -1,17 +1,6 @@
 package org.cse222;
 
-
-/**
- * 
- * 
- * 
- * @author Soner Türkoðlu
- *
- */
-
 public class Admin extends Person {
-
-
 	public Admin(){
         super();
     }

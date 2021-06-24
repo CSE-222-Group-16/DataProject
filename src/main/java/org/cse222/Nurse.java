@@ -1,10 +1,12 @@
-package org.cse222;
 
 import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.Map;
+import java.util.List;
 
 public class Nurse extends Person {
+
+    Database databaseRef;
+    
+    public static int idNo = 401;
 
     /**
      * this list for nurse surgery list in a day
@@ -21,10 +23,27 @@ public class Nurse extends Person {
 
     private ArrayList<Integer> needSerumPatientsList;
 
+    public ArrayList<Integer> getSurgeryList() {
+        return surgeryList;
+    }
 
+    public void setSurgeryList(ArrayList<Integer> surgeryList) {
+        this.surgeryList = surgeryList;
+    }
 
+    public void setInvestigatePatientList(ArrayList<Integer> investigatePatientList) {
+        this.investigatePatientList = investigatePatientList;
+    }
 
-    public Nurse(){
+    public void setNeedInjectionPatientsList(ArrayList<Integer> needInjectionPatientsList) {
+        this.needInjectionPatientsList = needInjectionPatientsList;
+    }
+
+    public void setNeedSerumPatientsList(ArrayList<Integer> needSerumPatientsList) {
+        this.needSerumPatientsList = needSerumPatientsList;
+    }
+
+    public Nurse(Database database){
         super();
         this.surgeryList = new ArrayList<Integer>();
         this.investigatePatientList = new ArrayList<Integer>();
@@ -32,16 +51,35 @@ public class Nurse extends Person {
         this.needSerumPatientsList = new ArrayList<Integer>();
         this.blockNumber=0;
         this.layerNumber=0;
+        databaseRef = database;
+        setId(idNo);
+        ++idNo;
     }
 
-    public Nurse(String name, String surName, int age, char gender, Address address, int id, int blockNumber, int layerNumber){
-        super(name, surName, age, gender, address, id);
+    public Nurse(Database database){
+        super();
+        this.surgeryList = new ArrayList<Integer>();
+        this.investigatePatientList = new ArrayList<Integer>();
+        this.needInjectionPatientsList = new ArrayList<Integer>();
+        this.needSerumPatientsList = new ArrayList<Integer>();
+        this.blockNumber=0;
+        this.layerNumber=0;
+        databaseRef = database;
+        setId(idNo);
+        ++idNo;
+    }
+
+    public Nurse(String name, String surName, int age, char gender, Address address
+            , int blockNumber, int layerNumber,Database database){
+        super(name, surName, age, gender, address, idNo);
         this.surgeryList = new ArrayList<Integer>();
         this.investigatePatientList = new ArrayList<Integer>();
         this.needInjectionPatientsList = new ArrayList<Integer>();
         this.needSerumPatientsList = new ArrayList<Integer>();
         this.blockNumber=blockNumber;
         this.layerNumber=layerNumber;
+        databaseRef = database;
+        ++idNo;
     }
 
     public void addSurgery(Operation op){
@@ -91,32 +129,9 @@ public class Nurse extends Person {
     }
     */
 
-    public void giveInjectionToPatient(Hashtable<Integer,Patient> ptList){
 
-        for (Map.Entry mapElement : ptList.entrySet()) {
+    public void giveInjectionToPatient(){
 
-            Patient value = ((Patient)mapElement.getValue());
-            if(value.getNeedInjection()){
-                value.setNeedInjection(false);
-            }
-
-        }
-
-    }
-
-    /**
-     * look needSerumPatientsList and give serum all need patient
-     */
-    public void giveSerumToPatient(Hashtable<Integer,Patient> ptList){
-
-        for (Map.Entry mapElement : ptList.entrySet()) {
-
-            Patient value = ((Patient)mapElement.getValue());
-            if(value.getNeedSerum()){
-                value.setNeedSerum(false);
-            }
-
-        }
 
     }
 
@@ -124,6 +139,13 @@ public class Nurse extends Person {
      * look needInjectionPatientsList and do vaccinate all need patient
      */
     public void injection(){
+
+    }
+
+    /**
+     * look needSerumPatientsList and give serum all need patient
+     */
+    public void giveSerumToPatient(){
 
     }
 

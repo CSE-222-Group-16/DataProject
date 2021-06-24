@@ -1,8 +1,5 @@
-package org.cse222;
-
 import java.util.*;
 
-import org.cse222.DataStructures.*;
 /**
  * All needed data are
  * stored here. All objects
@@ -29,10 +26,12 @@ public class Database {
     private SkipList<PatientRecord> patientRecords;
     
     private AVLTree<Person> allPatients ;
-    private PriorityQueue<Patient> emergencyPatients;
-    private AVLTree<Person> allUsers;
-
     
+    private PriorityQueue<Patient> emergencyPatients;
+    
+    private AVLTree<Person> allUsers;
+    
+    private ArrayList<Nurse> nurses;
     
     
     
@@ -50,6 +49,8 @@ public class Database {
         emergencyPatients = new PriorityQueue<>();
         floors = new ArrayList<>();
         allUsers = new AVLTree<>();
+        nurses = new ArrayList<>();
+
     /*    floors.add(1); floors.add(2); floors.add(3);floors.add(4);floors.add(4);
         Block[] blocks = new Block[]{new Block (1,floors),new Block (2,floors),new Block (3,floors)};
         blockStructureGraph = new AdjacencyListMatrix<> (3,false,blocks);   */
@@ -112,10 +113,19 @@ public class Database {
 
         return foundDoctors;
     }
-
-
-   
-
+    
+    /**
+     * Finds given nurse
+     * @param nurse
+     * @return
+     */
+    public Nurse findNurse(Nurse nurse){
+        for (int i = 0; i < nurses.size(); i++) {
+            if (nurse.getId() == nurses.get(i).getId())
+                return nurses.get(i);
+        }
+        return null;
+    }
     
     
     public Patient getPatientByName(String name){
@@ -192,6 +202,14 @@ public class Database {
 
     public void setAllPatients(AVLTree<Person> allPatients) {
         this.allPatients = allPatients;
+    }
+    
+    public ArrayList<Nurse> getNurses() {
+        return nurses;
+    }
+
+    public void setNurses(ArrayList<Nurse> nurses) {
+        this.nurses = nurses;
     }
     
     public void createGraph(int blockNo,ArrayList<Integer> floor){

@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         //database created
-        Database database = new Database();
+        Database database= new Database();
 
         addUsers addUser = new addUsers();
         addUser.addConsultant(database);

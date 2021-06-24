@@ -37,11 +37,18 @@ public class Consultant extends Person {
     }
 
     public void ConsultantMenu(){
-        System.out.println("-------------------------");
-        System.out.println("-----Consultant Menu-----");
-        System.out.println("-------------------------");
-        System.out.println("--Patient Registration---");
-        System.out.println("-------------------------");
+        int k;
+		for ( k = 0; k < 45; k++) System.out.print("-");
+		System.out.print("\n"+"   ");
+		System.out.println("Welcome Consultant "+ name+" "+surname);
+		for ( k = 0; k < 45; k++) System.out.print("-");
+		System.out.print("\n");
+		for ( k = 0; k < 45; k++) System.out.print("-");  System.out.println();
+		System.out.println("[1] Register a patient");
+		for ( k = 0; k < 45; k++) System.out.print("-");  System.out.println();
+		System.out.println("[2] See structure of the Hospital");
+		for ( k = 0; k < 45; k++) System.out.print("-");  System.out.println();
+		System.out.print("\n");
 
     }
     

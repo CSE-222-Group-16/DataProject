@@ -87,6 +87,10 @@ public class Database {
                     return ret;
         return null;
     }
+    
+    public Person findUser(int id){
+        return allUsers.find(new Person(id));
+    }
 
     public ArrayList<Consultant> getConsultants() {
         return consultants;

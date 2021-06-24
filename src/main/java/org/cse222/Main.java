@@ -23,6 +23,8 @@ public class Main {
 
         //MENU
         try {
+
+asdfasdf
             Scanner sc= new Scanner(System.in); //System.in is a standard input stream.
 
             System.out.println("------WELCOME TO THE HOSPITAL MANAGEMENT SYSTEM-------");

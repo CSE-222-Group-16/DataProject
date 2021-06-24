@@ -150,6 +150,8 @@ public class Doctor extends Person {
             System.out.println("-------------------------");
             System.out.println("--2) Request Day Off---");
             System.out.println("-------------------------");
+            System.out.println("--Type 'back' to quit---");
+            System.out.println("-------------------------");
             Scanner reader = new Scanner(System.in);
 
             menuOpt = reader.nextLine();
@@ -217,7 +219,8 @@ public class Doctor extends Person {
             System.out.println("-------------------------");
             System.out.println("--3) See Test Results---");
             System.out.println("-------------------------");
-
+            System.out.println("--Type 'back' to quit---");
+            System.out.println("-------------------------");
             Scanner reader = new Scanner(System.in);
 
             menuOpt = reader.nextLine();

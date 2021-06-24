@@ -14,7 +14,7 @@ public class Main {
         addUser.addMedicinePharmacy(database);
         addUser.addPatients(database);
         addUser.addPatientRecords(database);
-        
+        addUser.addChiefPhysician(database);
         database.allUsersP();
 
 
@@ -46,7 +46,7 @@ public class Main {
                     } else if(loginPerson.getJobType() == JobType.Admin){
 
                     } else if (loginPerson.getJobType() == JobType.ChiefPhysician){
-
+                        new ChiefPhysician().ChiefPhysicianMenu(new Doctor(database));
                     } else if(loginPerson.getJobType() == JobType.Consultant){
 
                     } else if (loginPerson.getJobType() == JobType.Nurse) {

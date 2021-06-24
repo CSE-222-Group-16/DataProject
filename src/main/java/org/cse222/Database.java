@@ -1,3 +1,7 @@
+package org.cse222;
+
+import org.cse222.DataStructures.SkipList;
+
 import java.util.*;
 
 /**
@@ -33,8 +37,7 @@ public class Database {
     
     private ArrayList<Nurse> nurses;
     
-    
-    
+    ChiefPhysician chiefPhysician;
     
     /**
      * Needed objects will be added.
@@ -50,10 +53,18 @@ public class Database {
         floors = new ArrayList<>();
         allUsers = new AVLTree<>();
         nurses = new ArrayList<>();
-
+        chiefPhysician = new ChiefPhysician();
     /*    floors.add(1); floors.add(2); floors.add(3);floors.add(4);floors.add(4);
         Block[] blocks = new Block[]{new Block (1,floors),new Block (2,floors),new Block (3,floors)};
         blockStructureGraph = new AdjacencyListMatrix<> (3,false,blocks);   */
+    }
+
+    public void setChiefPhysician(ChiefPhysician chiefPhysician){
+        this.chiefPhysician = chiefPhysician;
+    }
+
+    public ChiefPhysician getChiefPhysician(){
+        return this.chiefPhysician;
     }
 
     public Hashtable<Integer, Doctor> getDoctors() {

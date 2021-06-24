@@ -168,10 +168,9 @@ public class Doctor extends Person {
 
         this.requestDayOff();
 
-        ChiefPhysician chiefPhysician = new ChiefPhysician();
+        ChiefPhysician chiefPhysician = databaseRef.getChiefPhysician();
 
-        if(chiefPhysician.dayOff(this)) System.out.println("You can go travel!!!");
-        else System.out.println("You can not go travel, wait for available days!!!");
+        chiefPhysician.ChiefPhysicianMenu(this);
     }
     private void recipe() {
         System.out.println("Preparing recipe...\nPlease wait!");

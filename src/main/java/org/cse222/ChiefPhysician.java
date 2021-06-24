@@ -3,6 +3,7 @@ package org.cse222;
 import org.cse222.DataStructures.KWQueue;
 
 import java.util.Iterator;
+import java.util.Scanner;
 
 public class ChiefPhysician extends Person {
     private int MAX_HOLIDAY_DAY = 5;
@@ -93,5 +94,31 @@ public class ChiefPhysician extends Person {
             }
         }
         else return false;
+    }
+
+    public void ChiefPhysicianMenu(Person person){
+        String menuOpt = "notBack";
+
+        while(!menuOpt.equals("back")){
+            System.out.println("-------------------------");
+            System.out.println("-----Chief Physician Menu-----");
+            System.out.println("-------------------------");
+            System.out.println("--1) Day Off Request---");
+            System.out.println("-------------------------");
+            System.out.println("--Type 'back' to quit---");
+            System.out.println("-------------------------");
+            Scanner reader = new Scanner(System.in);
+
+            menuOpt = reader.nextLine();
+
+            if(menuOpt.equalsIgnoreCase("1")) DayOff(person);
+            else if(menuOpt.equalsIgnoreCase("back")) break;
+            else System.out.println("Unrecognized option. Try again.");
+        }
+    }
+
+    public void DayOff(Person person){
+        if(this.dayOff(this)) System.out.println("You can go travel!!!");
+        else System.out.println("You can not go travel, wait for available days!!!");
     }
 }

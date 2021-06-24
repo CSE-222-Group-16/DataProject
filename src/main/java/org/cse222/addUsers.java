@@ -149,4 +149,8 @@ public void addPatients(Database database){
 
 
     }
+
+    public void addChiefPhysician(Database database){
+        new ChiefPhysician("Merve", "Gürler", 55, 'g', new Address(), 111, database);
+    }
 }

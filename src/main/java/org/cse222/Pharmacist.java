@@ -71,4 +71,18 @@ public class Pharmacist extends Person {
             }
         }
     }
+
+    public Medicine findCheapestProduct(){
+        for(int i = 0; i < databaseRef.getMedicinePharmacy().size(); i++){
+            for(int j = 0; j < databaseRef.getMedicinePharmacy().size()-i-1; j++){
+                if(databaseRef.getMedicinePharmacy().get(j).getTakeCount() > databaseRef.getMedicinePharmacy().get(j+1).getTakeCount()){
+                    // swap
+                    Medicine medicine = databaseRef.getMedicinePharmacy().get(j);
+                    databaseRef.getMedicinePharmacy().set(j, databaseRef.getMedicinePharmacy().get(j+1));
+                    databaseRef.getMedicinePharmacy().set(j+1, medicine);
+                }
+            }
+        }
+        return databaseRef.getMedicinePharmacy().get(0);
+    }
 }

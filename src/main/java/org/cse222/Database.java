@@ -14,7 +14,7 @@ public class Database {
      * Doctors stored in database in
      * a ArrayList.
      */
-    private TreeMap<Integer,Doctor> doctors;
+    private Hashtable<Integer,Doctor> doctors;
 
     private ArrayList<Consultant> consultants;
 
@@ -41,7 +41,7 @@ public class Database {
      * Needed objects will be added.
      */
     public Database(){
-        doctors = new TreeMap<>();
+        doctors = new Hashtable<>();
         consultants = new ArrayList<>();
         medicinePatient = new ArrayList<>();
         medicinePharmacy = new ArrayList<>();
@@ -49,16 +49,17 @@ public class Database {
         allPatients = new AVLTree<>();     
         emergencyPatients = new PriorityQueue<>();
         floors = new ArrayList<>();
+        allUsers = new AVLTree<>();
     /*    floors.add(1); floors.add(2); floors.add(3);floors.add(4);floors.add(4);
         Block[] blocks = new Block[]{new Block (1,floors),new Block (2,floors),new Block (3,floors)};
         blockStructureGraph = new AdjacencyListMatrix<> (3,false,blocks);   */
     }
 
-    public TreeMap<Integer, Doctor> getDoctors() {
+    public Hashtable<Integer, Doctor> getDoctors() {
         return doctors;
     }
     
-    public void setDoctors(TreeMap<Integer, Doctor> doctors) {
+    public void setDoctors(Hashtable<Integer, Doctor> doctors) {
         this.doctors = doctors;
     }
     
@@ -72,8 +73,8 @@ public class Database {
         System.out.println();
 
         System.out.println("Consultants: ");
-        for (var consultant: this.consultants) {
-            System.out.println(consultant.getFullname());
+        for (int i = 0; i < this.consultants.size(); i++) {
+            System.out.println(this.consultants.get(i).getFullname());
         }
         System.out.println();
 

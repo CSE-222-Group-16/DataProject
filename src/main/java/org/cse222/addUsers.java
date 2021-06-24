@@ -5,7 +5,7 @@ import java.util.TreeMap;
 
 public class addUsers {
     public void addDoctors(Database databaseRef){
-        TreeMap<Integer, Doctor> doctors = new TreeMap<>();
+        Hashtable<Integer, Doctor> doctors = new Hashtable<>();
 
         doctors.put(11111,new Doctor("Hayri","Tas",29,'b',new Address(),11111,1,1,12,databaseRef));
         doctors.put(11112,new Doctor("Ali","Yilmaz",56,'b',new Address(),11112,2,1,12,databaseRef));

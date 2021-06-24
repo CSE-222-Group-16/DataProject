@@ -2,9 +2,11 @@ package org.cse222;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Scanner;
 
 public class Doctor extends Person {
 
+    private int countHolidayDays;
 
     private boolean dayOff;
     /**
@@ -92,6 +94,7 @@ public class Doctor extends Person {
     public void makeAnalysis(Patient patient, ArrayList<String> analysisList){
         for(int i=0;i<analysisList.size();++i){
             patient.addAnalysis(analysisList.get(i));
+            patient.addAnalysisResults(analysisList.get(i));
         }
     }
 
@@ -136,10 +139,107 @@ public class Doctor extends Person {
         this.dayOff = dayOff;
     }
 
-    /**
-     * empty right now it will assign day of value
-     */
+    public void DoctorMenu(){
+        String menuOpt = "notBack";
+
+        while(!menuOpt.equals("back")){
+            System.out.println("-------------------------");
+            System.out.println("-----Doctor Menu-----");
+            System.out.println("-------------------------");
+            System.out.println("--1) Treat Next Patient---");
+            System.out.println("-------------------------");
+            System.out.println("--2) Request Day Off---");
+            System.out.println("-------------------------");
+            Scanner reader = new Scanner(System.in);
+
+            menuOpt = reader.nextLine();
+
+            if(menuOpt.equalsIgnoreCase("1")) treat();
+            else if(menuOpt.equalsIgnoreCase("2")) DayOff();
+            else if(menuOpt.equalsIgnoreCase("back")) break;
+            else System.out.println("Unrecognized option. Try again.");
+        }
+    }
+
+    private void DayOff() {
+        System.out.println("Requesting day off from chief physician...\nPlease wait!");
+
+        this.requestDayOff();
+
+        ChiefPhysician chiefPhysician = new ChiefPhysician();
+
+        if(chiefPhysician.dayOff(this)) System.out.println("You can go travel!!!");
+        else System.out.println("You can not go travel, wait for available days!!!");
+    }
+    private void recipe() {
+        System.out.println("Preparing recipe...\nPlease wait!");
+
+        ArrayList<Medicine> recipe = databaseRef.getMedicinePatient();
+
+        this.makeRecipe(patientList.peek(), recipe);
+
+        System.out.println("Recipe prepared.");
+    }
+
+    private void analysis() {
+        System.out.println("Preparing analysis...\nPlease wait!");
+
+        ArrayList<String> analysis = new ArrayList();
+        analysis.add("add analysis");
+
+        this.makeAnalysis(patientList.peek(), analysis);
+
+        System.out.println("Analysis is done.");
+
+    }
+    private void testResults() {
+        System.out.println("Preparing test results...\nPlease wait!");
+
+        for(int i = 0; i < this.seeTestResults(patientList.peek()).size(); i++){
+            System.out.println(this.seeTestResults(patientList.peek()).get(i));
+        }
+
+        System.out.println("All test results printed.");
+    }
+
+    private void treat() {
+        if(patientList.peek() == null){
+            System.out.println("There is no patient. You can go home or have a rest.");
+            return;
+        }
+
+        this.treatNextPatient(patientList.peek().getId());
+        String menuOpt = "notBack";
+        while(!menuOpt.equals("back")) {
+            System.out.println("--1) Make Recipe---");
+            System.out.println("-------------------------");
+            System.out.println("--2) Make Analysis---");
+            System.out.println("-------------------------");
+            System.out.println("--3) See Test Results---");
+            System.out.println("-------------------------");
+
+            Scanner reader = new Scanner(System.in);
+
+            menuOpt = reader.nextLine();
+
+            if (menuOpt.equalsIgnoreCase("1")) recipe();
+            else if (menuOpt.equalsIgnoreCase("2")) analysis();
+            else if (menuOpt.equalsIgnoreCase("3")) testResults();
+            else if(menuOpt.equalsIgnoreCase("back")) break;
+            else System.out.println("Unrecognized option. Try again.");
+        }
+        this.patientList.remove();
+    }
+
     public void requestDayOff(){
         this.dayOff = true;
+    }
+
+    public int getCountHolidayDays() {
+        return countHolidayDays;
+    }
+
+    public void setCountHolidayDays(int countHolidayDays) {
+        this.countHolidayDays = countHolidayDays;
     }
 }

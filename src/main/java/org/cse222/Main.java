@@ -41,7 +41,8 @@ public class Main {
 
                 if (loginPerson != null){
                     if (loginPerson.getJobType() == JobType.Doctor){
-
+                        Doctor doctor = new Doctor(database);
+                        doctor.DoctorMenu();
                     } else if(loginPerson.getJobType() == JobType.Admin){
 
                     } else if (loginPerson.getJobType() == JobType.ChiefPhysician){

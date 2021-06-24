@@ -12,6 +12,11 @@ public class Main {
         addUser.addDoctors(database);
         addUser.addMedicinePatient(database);
         addUser.addMedicinePharmacy(database);
+        addUser.addPatients(database);
+        addUser.addPatientRecords(database);
+        
+        database.allUsersP();
+
 
         System.out.println(database.getDoctors().size());
         System.out.println(database.getConsultants().size());

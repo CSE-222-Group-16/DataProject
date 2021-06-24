@@ -97,6 +97,11 @@ public class Database {
             allUsers.add(consultant);
         }
 
+        //Nurses added
+        for (Nurse nurs : nurses) {
+            allUsers.add(nurs);
+        }
+        
         System.out.println(allUsers.getSize());
 
     }
@@ -214,6 +219,14 @@ public class Database {
     
     public void createGraph(int blockNo,ArrayList<Integer> floor){
         blockStructureGraph.setVertex (new Block (blockNo),new Block (blockNo,floor));
+    }
+    
+    public Person findUser(Person person){
+        return allUsers.find(person);
+    }
+    
+    public Person findPatient(Person patient){
+        return allPatients.find(patient);
     }
 
     public void printHospital(){

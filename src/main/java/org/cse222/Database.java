@@ -83,7 +83,7 @@ public class Database {
     public Patient getPatientByName(String name){
         for(Integer d: doctors.keySet())
             for(Patient ret:doctors.get(d).getPatientList())
-                if(ret.getName()==name)
+                if(ret.getName().equals(name))
                     return ret;
         return null;
     }

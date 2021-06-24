@@ -14,7 +14,7 @@ public class Database {
      * Doctors stored in database in
      * a ArrayList.
      */
-    private Hashtable<Integer,Doctor> doctors;
+    private TreeMap<Integer,Doctor> doctors;
 
     private ArrayList<Consultant> consultants;
 
@@ -32,11 +32,29 @@ public class Database {
     private PriorityQueue<Patient> emergencyPatients;
     private AVLTree<Person> allUsers;
 
+    
+    
+    public TreeMap<Integer, Doctor> getDoctors() {
+        return doctors;
+    }
+    
+    public void setDoctors(TreeMap<Integer, Doctor> doctors) {
+        this.doctors = doctors;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     /**
      * Needed objects will be added.
      */
     public Database(){
-        doctors = new Hashtable<>();
+        doctors = new TreeMap<>();
         consultants = new ArrayList<>();
         medicinePatient = new ArrayList<>();
         medicinePharmacy = new ArrayList<>();
@@ -49,11 +67,11 @@ public class Database {
         blockStructureGraph = new AdjacencyListMatrix<> (3,false,blocks);   */
     }
 
-    public Hashtable<Integer, Doctor> getDoctors() {
+    public TreeMap<Integer, Doctor> getDoctors() {
         return doctors;
     }
     
-    public void setDoctors(Hashtable<Integer, Doctor> doctors) {
+    public void setDoctors(TreeMap<Integer, Doctor> doctors) {
         this.doctors = doctors;
     }
     
@@ -94,8 +112,8 @@ public class Database {
 
     }
 
-    public Hashtable<Integer, Doctor> searchByNameAndSurname(String name, String surname){
-        Hashtable<Integer, Doctor> foundDoctors = new Hashtable<>();
+    public TreeMap<Integer, Doctor> searchByNameAndSurname(String name, String surname){
+        TreeMap<Integer, Doctor> foundDoctors = new TreeMap<>();
 
         for (int i = 0; i < doctors.size(); i++) {
             if (doctors.get(i).getName().equals(name)

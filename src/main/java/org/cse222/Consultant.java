@@ -45,6 +45,10 @@ public class Consultant extends Person {
         System.out.println("-------------------------");
 
     }
+    
+    public void seeHospitalStructure(){
+        databaseRef.printHospital();
+    }
 
     /**
      * Adds the needed patient to needed doctor's

@@ -40,7 +40,7 @@ public class Consultant extends Person {
         int k;
 		for ( k = 0; k < 45; k++) System.out.print("-");
 		System.out.print("\n"+"   ");
-		System.out.println("Welcome Consultant "+ name+" "+surname);
+		System.out.println("Welcome Consultant "+ getName()+" "+getSurname());
 		for ( k = 0; k < 45; k++) System.out.print("-");
 		System.out.print("\n");
 		for ( k = 0; k < 45; k++) System.out.print("-");  System.out.println();

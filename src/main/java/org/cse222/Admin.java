@@ -37,7 +37,7 @@ public class Admin extends Person {
 		int k;
 		for ( k = 0; k < 45; k++) System.out.print("-");
 		System.out.print("\n"+"   ");
-		System.out.println("Welcome Admin! "+admin.name+" "+admin.surname);
+		System.out.println("Welcome Admin! "+ getName()+" "+getSurname());
 		for ( k = 0; k < 45; k++) System.out.print("-");
 		System.out.print("\n");
 		System.out.println("[1] Assign Nurse to the floor");

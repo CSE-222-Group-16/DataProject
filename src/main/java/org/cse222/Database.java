@@ -26,11 +26,12 @@ public class Database {
     private GraphADT<Block> blockStructureGraph;
     
     private ArrayList<Integer> floors;
+    
+    private SkipList<PatientRecord> patientRecords;
+    
+    private AVLTree<Person> allPatients ;
 
-    /**
-     *     All Users List
-     */
-    private ArrayList<Person> allUsers;
+   
 
     /**
      * Needed objects will be added.
@@ -40,8 +41,8 @@ public class Database {
         consultants = new ArrayList<>();
         medicinePatient = new ArrayList<>();
         medicinePharmacy = new ArrayList<>();
-        allUsers = new ArrayList<>();
-        
+        patientRecords = new SkipList<>();
+        allPatients = new AVLTree<>();        
         floors = new ArrayList<>();
         floors.add(1); floors.add(2); floors.add(3);floors.add(4);floors.add(4);
         Block[] blocks = new Block[]{new Block (1,floors),new Block (2,floors),new Block (3,floors)};
@@ -52,9 +53,18 @@ public class Database {
      * Adds all user in a one Person List
      */
     public void allUsersP(){
-        allUsers.addAll(doctors.values());
-        allUsers.addAll(consultants);
-        System.out.println(allUsers.get(allUsers.size()-1).getJobType());
+         //Doctor Added
+        ArrayList<Person> doctors = new ArrayList<>(getDoctors().values());
+        for (Person doctor : doctors) {
+            allUsers.add(doctor);
+        }
+
+        //Consultant Added
+        for (Person consultant : getConsultants()) {
+            allUsers.add(consultant);
+        }
+
+        System.out.println(allUsers.getSize());
 
     }
 
@@ -114,6 +124,46 @@ public class Database {
 
     public void setMedicinePatient(ArrayList<Medicine> medicines){
         this.medicinePatient = medicines;
+    }
+    
+    public AVLTree<Person> getAllUsers() {
+        return allUsers;
+    }
+
+    public void setAllUsers(AVLTree<Person> allUsers) {
+        this.allUsers = allUsers;
+    }
+
+    public GraphADT<Block> getBlockStructureGraph() {
+        return blockStructureGraph;
+    }
+
+    public void setBlockStructureGraph(GraphADT<Block> blockStructureGraph) {
+        this.blockStructureGraph = blockStructureGraph;
+    }
+
+    public ArrayList<Integer> getFloors() {
+        return floors;
+    }
+
+    public void setFloors(ArrayList<Integer> floors) {
+        this.floors = floors;
+    }
+
+    public SkipList<PatientRecord> getPatientRecords() {
+        return patientRecords;
+    }
+
+    public void setPatientRecords(SkipList<PatientRecord> patientRecords) {
+        this.patientRecords = patientRecords;
+    }
+
+    public AVLTree<Person> getAllPatients() {
+        return allPatients;
+    }
+
+    public void setAllPatients(AVLTree<Person> allPatients) {
+        this.allPatients = allPatients;
     }
     
     public void createGraph(int blockNo,ArrayList<Integer> floor){

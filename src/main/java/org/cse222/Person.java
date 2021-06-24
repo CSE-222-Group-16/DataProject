@@ -1,12 +1,24 @@
 package org.cse222;
-
 import java.util.List;
+import java.util.Objects;
+
+enum JobType {
+    Admin,
+    Doctor,
+    Patient,
+    Nurse,
+    ChiefPhysician,
+    Pharmacist,
+    TechnicianWorker,
+    Consultant,
+    Undeclared
+}
 
 /**
  *
  * @author Samet
  */
-public class Person implements PersonInterface{
+public class Person implements PersonInterface,  Comparable<Person> {
 
     /**
      * person name
@@ -40,10 +52,12 @@ public class Person implements PersonInterface{
 
     private boolean dayOff;
 
+    private JobType jobType;
+
     /**
      * no parameter constructor
      */
-     
+
     public Person(){
         this.name = null;
         this.surName = null;
@@ -51,6 +65,7 @@ public class Person implements PersonInterface{
         this.gender = 'u';
         this.address = null;
         this.id=0;
+        jobType = JobType.Undeclared;
     }
 
     /**
@@ -73,9 +88,11 @@ public class Person implements PersonInterface{
         this.address.setDistrict(address.getDistrict());
         this.address.setStreet(address.getStreet());
         this.address.setNumber(address.getNumber());
+        jobType = JobType.Undeclared;
+
     }
 
-     public void setDayOff(boolean dayOff) {
+    public void setDayOff(boolean dayOff) {
         this.dayOff = dayOff;
     }
 
@@ -196,4 +213,30 @@ public class Person implements PersonInterface{
     @Override
     public int getId(){return this.id;}
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return id == person.id && jobType == person.jobType;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, jobType);
+    }
+
+    public JobType getJobType() {
+        return jobType;
+    }
+
+    public void setJobType(JobType jobType) {
+        this.jobType = jobType;
+    }
+    
+    @Override
+    public int compareTo(Person o) {
+        return this.getId() - o.getId();
+    }
 }

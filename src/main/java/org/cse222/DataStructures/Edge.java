@@ -1,4 +1,4 @@
-package DataStructures;
+package org.cse222.DataStructures;
 
 /** An Edge represents a relationship between two
  *  vertices.

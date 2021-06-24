@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Patient extends Person {
 
     /*recete list*/
-    private ArrayList<String> recipeList;
+    private ArrayList<Medicine> recipeList;
 
     /*olmasi gereken tahliller*/
     private ArrayList<String> needAnalysis;
@@ -24,7 +24,7 @@ public class Patient extends Person {
 
     public Patient(){
         super();
-        this.recipeList=new ArrayList<String>();
+        this.recipeList=new ArrayList<Medicine>();
         this.needAnalysis=new ArrayList<String>();
         this.analysisResults=new ArrayList<String>();
         this.stayHospitalOrNot=false;
@@ -35,7 +35,7 @@ public class Patient extends Person {
 
     public Patient(String name, String surName, int age, char gender, Address address, int id, boolean stayHospitalOrNot, int roomNumber, boolean needSerum, boolean NeedInjection){
         super(name, surName, age, gender, address, id);
-        this.recipeList=new ArrayList<String>();
+        this.recipeList=new ArrayList<Medicine>();
         this.needAnalysis=new ArrayList<String>();
         this.analysisResults=new ArrayList<String>();
         this.NeedInjection=NeedInjection;
@@ -60,7 +60,7 @@ public class Patient extends Person {
         this.stayHospitalOrNot=stayHospitalOrNot;
     }
 
-    public void addRecipe(String newRecipe){
+    public void addRecipe(Medicine newRecipe){
         recipeList.add(newRecipe);
     }
 
@@ -72,7 +72,7 @@ public class Patient extends Person {
         analysisResults.add(newAnalysisResult);
     }
 
-    public ArrayList<String> getRecipeList(){
+    public ArrayList<Medicine> getRecipeList(){
         return this.recipeList;
     }
 

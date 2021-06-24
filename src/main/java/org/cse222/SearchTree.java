@@ -1,4 +1,3 @@
-package org.cse222.DataStructures;
 
 /** Interface to define a search tree
  *  @author Koffman and Wolfgang
@@ -32,14 +31,14 @@ public interface SearchTree < E
       @return A reference to the object in the tree that compares
       equal as determined by compareTo to the target. If not found
       null is returned.
-      @post target is not in the tree
+      post target is not in the tree
    */
   E delete(E target);
 
   /** Removes target from tree.
       @param target Item to be removed
       @return true if the object was in the tree, false otherwise
-      @post target is not in the tree
+      post target is not in the tree
    */
   boolean remove(E target);
 }

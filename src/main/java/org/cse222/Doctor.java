@@ -1,11 +1,12 @@
+package org.cse222;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Doctor extends Person{
+public class Doctor extends Person {
 
 
-    private final boolean dayOff;
+    private boolean dayOff;
     /**
      * this is office number or name for working who doctor
      */
@@ -31,7 +32,10 @@ public class Doctor extends Person{
     private int layerNumber;
 
 
-    public Doctor(){
+
+    Database databaseRef;
+
+    public Doctor(Database database){
         super();
         this.officeNumber=0;
         this.investigatePatient=0;
@@ -40,10 +44,13 @@ public class Doctor extends Person{
         this.blockNumber=0;
         this.layerNumber=0;
         patientList = new LinkedList<>();
+        databaseRef = database;
+        this.setJobType(JobType.Doctor);
     }
 
 
-    public Doctor(String name, String surName, int age, char gender, Address address, int id, int officeName,int blockNumber, int layerNumber){
+    public Doctor(String name, String surName, int age, char gender, Address address, int id,
+                  int officeName, int blockNumber, int layerNumber, Database database){
         super(name, surName, age, gender, address, id);
         this.officeNumber=officeName;
         this.investigatePatient=0;
@@ -51,6 +58,8 @@ public class Doctor extends Person{
         this.dayOff=false;
         this.blockNumber=blockNumber;
         this.layerNumber=layerNumber;
+        this.setJobType(JobType.Doctor);
+        databaseRef = database;
     }
 
     public void setOfficeNumber(int officeNumber){
@@ -69,7 +78,7 @@ public class Doctor extends Person{
         this.investigatePatient=nextPatientId;
     }
 
-    public void makeRecipe(Patient patient, ArrayList<String> recipeList){
+    public void makeRecipe(Patient patient, ArrayList<Medicine> recipeList){
 
         for(int i=0;i<recipeList.size();++i){
             patient.addRecipe(recipeList.get(i));
@@ -89,8 +98,6 @@ public class Doctor extends Person{
     public void addSurgery(Operation op){
         this.surgeryList.add(op.getId());
     }
-
-   
 
     public int getBlockNumber(){
         return this.blockNumber;
@@ -116,13 +123,19 @@ public class Doctor extends Person{
         this.patientList = patientList;
     }
 
+    public boolean getDayOff() {
+        return dayOff;
+    }
+
+    @Override
+    public void setDayOff(boolean dayOff) {
+        this.dayOff = dayOff;
+    }
+
     /**
      * empty right now it will assign day of value
      */
     public void requestDayOff(){
-
+        this.dayOff = true;
     }
-
-
-
 }

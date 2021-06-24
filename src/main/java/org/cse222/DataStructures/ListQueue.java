@@ -1,3 +1,5 @@
+package org.cse222.DataStructures;
+
 import java.util.*;
 
 /** Implements the Queue interface using a single-linked list.

@@ -12,7 +12,7 @@ package org.cse222;
 public class Admin extends Person {
 
 
-    public Admin(){
+	public Admin(){
         super();
     }
 
@@ -50,7 +50,6 @@ public class Admin extends Person {
     
     
     
-
 
 
 }

@@ -1,3 +1,5 @@
+package org.cse222.DataStructures;
+
 import java.util.*;
 
 /** Hash table implementation using chaining.

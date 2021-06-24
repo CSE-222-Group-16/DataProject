@@ -1,4 +1,3 @@
-package org.cse222.DataStructures;
 
 import java.io.*;
 
@@ -123,7 +122,7 @@ public class BinaryTree < E >
 
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    preOrderTraverse(root, 1, sb);
+    preOrderTraverse2(root, sb);
     return sb.toString();
   }
 
@@ -147,7 +146,22 @@ public class BinaryTree < E >
       preOrderTraverse(node.right, depth + 1, sb);
     }
   }
-
+  /**
+   * Perform a preorder traversal.And keep the values as a list.
+   * @param node The local root
+   * @param sb The string buffer to save the output
+   */
+  private void preOrderTraverse2(Node < E > node,StringBuilder sb) {
+    if (node == null) {
+      return;
+    }
+    else {
+      sb.append(node.toString());
+      sb.append("\n");
+      preOrderTraverse2(node.left,  sb);
+      preOrderTraverse2(node.right, sb);
+    }
+  }
   /** Method to read a binary tree.
       pre: The input consists of a preorder traversal
            of the binary tree. The line "null" indicates a null tree.

@@ -1,6 +1,7 @@
+package org.cse222;
 import java.util.ArrayList;
 
-public class Consultant extends Person{
+public class Consultant extends Person {
 
     private int blockNumber;
 
@@ -13,6 +14,7 @@ public class Consultant extends Person{
         super();
         this.blockNumber=0;
         this.layerNumber=0;
+        setJobType(JobType.Consultant);
     }
 
     public Consultant(Database database){
@@ -20,6 +22,8 @@ public class Consultant extends Person{
         this.blockNumber=0;
         this.layerNumber=0;
         databaseRef = database;
+        setJobType(JobType.Consultant);
+
     }
 
     public Consultant(String name, String surName, int age, char gender,
@@ -29,6 +33,8 @@ public class Consultant extends Person{
         this.blockNumber=blockNumber;
         this.layerNumber=layerNumber;
         databaseRef = database;
+        setJobType(JobType.Consultant);
+
     }
 
     public void ConsultantMenu(){
@@ -39,6 +45,10 @@ public class Consultant extends Person{
         System.out.println("-------------------------");
 
     }
+    
+    public void seeHospitalStructure(){
+        databaseRef.printHospital();
+    }
 
     /**
      * Adds the needed patient to needed doctor's
@@ -46,28 +56,28 @@ public class Consultant extends Person{
      * @param newPatient
      * @param newDoctor
      */
-    public void patientRegistration(Patient newPatient,Doctor newDoctor){
+    public void patientRegistration(Patient newPatient, Doctor newDoctor){
 
         //I found needed doctor's place in database.
-        int neededDoctorIndex = databaseRef.getDoctors().indexOf(newDoctor);
-        databaseRef.getDoctors().get(neededDoctorIndex).getPatientList().add(newPatient);
+        databaseRef.getDoctors().get(newDoctor.getId());
+        databaseRef.getDoctors().get(newPatient.getId()).getPatientList().add(newPatient);
 
         System.out.println("Patient: "
-                + databaseRef.getDoctors().get(neededDoctorIndex).getPatientList().peek().getId()
+                + databaseRef.getDoctors().get(newPatient.getId()).getPatientList().peek().getId()
                 +" "
-                + databaseRef.getDoctors().get(neededDoctorIndex).getPatientList().peek().getName()
+                + databaseRef.getDoctors().get(newPatient.getId()).getPatientList().peek().getName()
                 +" "
-                + databaseRef.getDoctors().get(neededDoctorIndex).getPatientList().peek().getSurName()
+                + databaseRef.getDoctors().get(newPatient.getId()).getPatientList().peek().getSurName()
                 +" Added to "
-                + databaseRef.getDoctors().get(neededDoctorIndex).getName()
+                + databaseRef.getDoctors().get(newPatient.getId()).getName()
                 +" "
-                + databaseRef.getDoctors().get(neededDoctorIndex).getSurName()
+                + databaseRef.getDoctors().get(newPatient.getId()).getSurName()
         );
     }
 
     public static void main(String[] args) {
         Database database = new Database();
-        database.getDoctors().add(new Doctor());
+        database.getDoctors().put(0,new Doctor(database));
         database.getDoctors().get(0).setName("Ali");
 
         Consultant consultant = new Consultant(database);

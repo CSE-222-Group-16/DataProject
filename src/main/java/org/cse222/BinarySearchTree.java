@@ -1,4 +1,3 @@
-package org.cse222.DataStructures;
 
 import java.io.*;
 
@@ -170,7 +169,7 @@ public class BinarySearchTree < E
   /** Removes target from tree.
        @param target Item to be removed
        @return true if the object was in the tree, false otherwise
-       @post target is not in the tree
+       post target is not in the tree
        @throws ClassCastException if target is not Comparable
    */
   public boolean remove(E target) {

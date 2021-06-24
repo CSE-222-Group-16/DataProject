@@ -16,6 +16,13 @@ public class Block {
         this.floorIdList = new ArrayList<Integer>();
     }
 
+    public Block(int blockNumber){
+
+        this.blockNumber=blockNumber;
+
+        this.floorIdList = new ArrayList<Integer>();
+    }
+    
     public Block(int blockNumber, ArrayList<Integer> floorIdList){
 
         this.blockNumber=blockNumber;

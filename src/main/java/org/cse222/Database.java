@@ -1,11 +1,8 @@
 package org.cse222;
 
-import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.PriorityQueue;
+import java.util.*;
 
 import org.cse222.DataStructures.*;
-
 /**
  * All needed data are
  * stored here. All objects
@@ -45,8 +42,8 @@ public class Database {
         medicinePharmacy = new ArrayList<>();
         patientRecords = new SkipList<>();
         allPatients = new AVLTree<>();     
-        emergencyPatients = new PriorityQueue();
-    /*    floors = new ArrayList<>();   */
+        emergencyPatients = new PriorityQueue<>();
+        floors = new ArrayList<>();
     /*    floors.add(1); floors.add(2); floors.add(3);floors.add(4);floors.add(4);
         Block[] blocks = new Block[]{new Block (1,floors),new Block (2,floors),new Block (3,floors)};
         blockStructureGraph = new AdjacencyListMatrix<> (3,false,blocks);   */
@@ -60,21 +57,22 @@ public class Database {
         this.doctors = doctors;
     }
     
-    
-    public void createDoctor() {
-    	doctors.put(000001,new Doctor("John","John",20,'m',new Address(),000001));
-    	doctors.put(000002,new Doctor("Nick","John",20,'m',new Address(),000002));
-    }
-    
-    
-    
-    
-    /*-------------------------------------------------*/
-    
-    
-    
-    
     public void printAll() {
+
+        System.out.println("Doctors:");
+        for (Map.Entry mapElement : doctors.entrySet()) {
+            Doctor doc = ((Doctor)mapElement.getValue());
+            System.out.println(doc.getFullname());
+        }
+        System.out.println();
+
+        System.out.println("Consultants: ");
+        for (var consultant: this.consultants) {
+            System.out.println(consultant.getFullname());
+        }
+        System.out.println();
+
+
     }
 
     /**

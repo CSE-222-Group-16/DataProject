@@ -182,6 +182,10 @@ public class Person implements PersonInterface,  Comparable<Person> {
         return this.surName;
     }
 
+    public String getFullname() {
+        return this.getName() + " " + this.getSurName();
+    }
+
     /**
      *
      * @return person age

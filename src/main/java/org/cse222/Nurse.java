@@ -150,6 +150,53 @@ public class Nurse extends Person {
 
     }
 
+    private void menu(){
+        String menuOpt = "notBack";
+
+        while(!menuOpt.equals("back")){
+            System.out.println("-------------------------");
+            System.out.println("-----Nurse Menu-----");
+            System.out.println("-------------------------");
+            System.out.println("--1) Add Surgery ---");
+            System.out.println("-------------------------");
+            System.out.println("--2) Add Patient to the Serum List ---");
+            System.out.println("-------------------------");
+            System.out.println("--3) Add Patient to the Injection List ---");
+            System.out.println("-------------------------");
+            Scanner reader = new Scanner(System.in);
+
+            menuOpt = reader.nextLine();
+
+
+            if(menuOpt.equalsIgnoreCase("1")) {
+
+                System.out.println("Add Surgery ID::");
+                int id  = reader.nextInt();
+
+                surgeryList.add(id);
+                System.out.println("Added!");
+
+            } else if(menuOpt.equalsIgnoreCase("2")){
+
+                System.out.println("Add Patient ID::");
+                int id  = reader.nextInt();
+
+                needSerumPatientsList.add(id);
+                System.out.println("Added!");
+
+            } else if(menuOpt.equalsIgnoreCase("3")){
+    
+                System.out.println("Add Patient ID:");
+                int id  = reader.nextInt();
+    
+                investigatePatientList.add(id);
+                System.out.println("Added!");
+
+            } else if(menuOpt.equalsIgnoreCase("back")) break;
+            else System.out.println("Unrecognized option. Try again.");
+        }
+    }
+
     @Override
     public String toString() {
         return super.toString() +"Nurse{" +

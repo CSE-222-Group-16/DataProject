@@ -29,7 +29,7 @@ public class Database {
     
     private SkipList<PatientRecord> patientRecords;
     
-    private AVLTree<Person> allPatients ;
+    private AVLTree<Patient> allPatients ;
     
     private PriorityQueue<Patient> emergencyPatients;
     
@@ -64,6 +64,11 @@ public class Database {
         blockStructureGraph = new AdjacencyListMatrix<> (3,false,blocks);   */
     }
 
+    public AVLTree<Patient> getAllPatients(){
+    	return patients;
+    }
+    
+    
     public void setChiefPhysician(ChiefPhysician chiefPhysician){
         this.chiefPhysician = chiefPhysician;
     }
@@ -130,6 +135,8 @@ public class Database {
 
     }
 
+    
+    
     public TreeMap<Integer, Doctor> searchByNameAndSurname(String name, String surname){
         TreeMap<Integer, Doctor> foundDoctors = new TreeMap<>();
 

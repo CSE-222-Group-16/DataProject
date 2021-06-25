@@ -49,30 +49,37 @@ public class TechnicianWorker extends Person {
         void anRes(){
             Scanner reader = new Scanner(System.in);
 
-            String patientn;
+            String patientn = " ";
             String line;
             Patient mypat;
             do{
                 //check patient
-                System.out.println("Please enter patient name:");
-                patientn = reader.nextLine();
+                System.out.println("Please enter patient id:");
+                int id = reader.nextInt();
+                System.out.println("Please enter doctor id:");
+                int d_id = reader.nextInt();
+                System.out.println("Result:");
+                String result = reader.nextLine();
+                result = reader.nextLine();
+
                 if(patientn.equalsIgnoreCase("back")) return;
-                mypat = databaseRef.getPatientByName(patientn);
-                if(mypat!=null) break;
-                System.out.println("This patient doesn't exist.");
+
+                if( databaseRef.getPatientRecords().find(new PatientRecord(new Patient(id,databaseRef),d_id))
+                        ==null) {
+                    System.out.println("This patient doesn't exist.");
+                    break;
+                }
+                else {
+                    databaseRef.getPatientRecords().find(new PatientRecord(new Patient(id, databaseRef), d_id))
+                            .getPatient().addAnalysisResults(result);
+                    System.out.println("Added Result: "+databaseRef.getPatientRecords().find(new PatientRecord(new Patient(id, databaseRef), d_id))
+                            .getPatient().getAnalysisResults().get(databaseRef.getPatientRecords().find(new PatientRecord(new Patient(id, databaseRef), d_id))
+                                    .getPatient().getAnalysisResults().size()-1));
+                }
+                System.out.println("write back to exit:");
+                patientn = reader.nextLine();
             }while (true);
-            ArrayList<String>anLines = new ArrayList<String>();
-            do{
-                //check patient
-                System.out.println("Fill analysis results below.");
-                System.out.println("Type \"save\" to update database.");
-                System.out.println("Type \"back\" to return without saving.");
-                line = reader.nextLine();
-                if(line.equalsIgnoreCase("save")) break;
-                if(line.equalsIgnoreCase("back")) return;
-                anLines.add(line);
-            }while (true);
-            fillAnalysisResults(mypat,anLines);
+
         }
     /*addAnalysisResults parametresi generate edilecek!!!! */
     public void fillAnalysisResults(Patient patient, ArrayList<String> needAnalysis){

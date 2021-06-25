@@ -95,13 +95,34 @@ public class Admin extends Person {
                 int id = reader.nextInt();
                 System.out.println("Enter Block No:");
                 int block = reader.nextInt();
-                System.out.println("Enter Floor No:");
-                int floor  = reader.nextInt();
+                System.out.println("Enter Layer No:");
+                int layer  = reader.nextInt();
 
                 databaseRef.getDoctors().get(id).setBlockNumber(block);
-                databaseRef.getDoctors().get(id).setBlockNumber(floor);
+                databaseRef.getDoctors().get(id).setLayerNumber(layer);
                 
                 System.out.println( databaseRef.getDoctors().get(id).toString());
+            } else if(menuOpt.equalsIgnoreCase("5")){
+                System.out.println("Enter Tech Worker ID:");
+                int id = reader.nextInt();
+                System.out.println("Enter Block No:");
+                int block = reader.nextInt();
+                System.out.println("Enter Layer No:");
+                int layer  = reader.nextInt();
+
+                databaseRef.getTechnicianWorkers()
+                        .get(databaseRef.getTechnicianWorkers().
+                                indexOf(new TechnicianWorker(id,databaseRef))).setBlockNumber(block);
+
+                databaseRef.getTechnicianWorkers()
+                        .get(databaseRef.getTechnicianWorkers().
+                                indexOf(new TechnicianWorker(id,databaseRef))).setLayerNumber(layer);
+
+                System.out.println(
+                        databaseRef.getTechnicianWorkers()
+                                .get(databaseRef.getTechnicianWorkers().
+                                        indexOf(new TechnicianWorker(id,databaseRef))).toString()
+                );
             }
             else if(menuOpt.equalsIgnoreCase("back")) break;
             else System.out.println("Unrecognized option. Try again.");

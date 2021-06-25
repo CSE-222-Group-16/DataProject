@@ -50,7 +50,7 @@ public class Main {
                     } else if (loginPerson.getJobType() == JobType.ChiefPhysician){
                         new ChiefPhysician(database).ChiefPhysicianMenu(new Doctor(database));
                     } else if(loginPerson.getJobType() == JobType.Consultant){
-                        new Consultant().menu();
+                        new Consultant(database).menu();
                     } else if (loginPerson.getJobType() == JobType.Nurse) {
                         new Nurse(database).menu();
                     } else if (loginPerson.getJobType() == JobType.Pharmacist){

@@ -7,24 +7,24 @@ public class addUsers {
     public void addDoctors(Database databaseRef){
         Hashtable<Integer,Doctor> doctors = new Hashtable<>();
 
-        doctors.put(11111,new Doctor("Hayri","Tas",29,'b',new Address(),1,1,12,databaseRef));
-        doctors.put(11112,new Doctor("Ali","Yilmaz",56,'b',new Address(),2,1,12,databaseRef));
-        doctors.put(11113,new Doctor("Veli","Yilmaz",55,'b',new Address(),3,1,12,databaseRef));
-        doctors.put(11114,new Doctor("Handan","Ser",43,'b',new Address(),4,1,12,databaseRef));
-        doctors.put(11115,new Doctor("Tuba","Bak",42,'b',new Address(),5,1,12,databaseRef));
-        doctors.put(11116,new Doctor("Yasemin","Serin",44,'b',new Address(),6,2,12,databaseRef));
-        doctors.put(11117,new Doctor("Asiye","Kartal",46,'b',new Address(),7,2,12,databaseRef));
-        doctors.put(11118,new Doctor("Esra","Serim",36,'b',new Address(),8,2,12,databaseRef));
-        doctors.put(11119,new Doctor("Nevra","Merik",38,'b',new Address(),9,2,12,databaseRef));
-        doctors.put(11120,new Doctor("Esranur","Soysal",35,'b',new Address(),10,2,12,databaseRef));
-        doctors.put(11121,new Doctor("Fadime","Arıcan",33,'b',new Address(),12,3,12,databaseRef));
-        doctors.put(11122,new Doctor("Fatih","Ak",32,'b',new Address(),11,3,12,databaseRef));
-        doctors.put(11123,new Doctor("Murat","Sak",31,'b',new Address(),12,3,12,databaseRef));
-        doctors.put(11124,new Doctor("Erkan","Sengul",35,'b',new Address(),13,4,12,databaseRef));
-        doctors.put(11125,new Doctor("Görkem","Ayri",46,'b',new Address(),14,5,12,databaseRef));
-        doctors.put(11126,new Doctor("Yusuf","Anıl",34,'b',new Address(),15,5,12,databaseRef));
-        doctors.put(11127,new Doctor("Ahmet","Mert",29,'b',new Address(),16,5,12,databaseRef));
-        doctors.put(11128,new Doctor("Seda","Mert",29,'b',new Address(),17,5,12,databaseRef));
+        doctors.put(Doctor.idNo,new Doctor("Hayri","Tas",29,'b',new Address(),1,1,12,databaseRef));
+        doctors.put(Doctor.idNo,new Doctor("Ali","Yilmaz",56,'b',new Address(),2,1,12,databaseRef));
+        doctors.put(Doctor.idNo,new Doctor("Veli","Yilmaz",55,'b',new Address(),3,1,12,databaseRef));
+        doctors.put(Doctor.idNo,new Doctor("Handan","Ser",43,'b',new Address(),4,1,12,databaseRef));
+        doctors.put(Doctor.idNo,new Doctor("Tuba","Bak",42,'b',new Address(),5,1,12,databaseRef));
+        doctors.put(Doctor.idNo,new Doctor("Yasemin","Serin",44,'b',new Address(),6,2,12,databaseRef));
+        doctors.put(Doctor.idNo,new Doctor("Asiye","Kartal",46,'b',new Address(),7,2,12,databaseRef));
+        doctors.put(Doctor.idNo,new Doctor("Esra","Serim",36,'b',new Address(),8,2,12,databaseRef));
+        doctors.put(Doctor.idNo,new Doctor("Nevra","Merik",38,'b',new Address(),9,2,12,databaseRef));
+        doctors.put(Doctor.idNo,new Doctor("Esranur","Soysal",35,'b',new Address(),10,2,12,databaseRef));
+        doctors.put(Doctor.idNo,new Doctor("Fadime","Arıcan",33,'b',new Address(),12,3,12,databaseRef));
+        doctors.put(Doctor.idNo,new Doctor("Fatih","Ak",32,'b',new Address(),11,3,12,databaseRef));
+        doctors.put(Doctor.idNo,new Doctor("Murat","Sak",31,'b',new Address(),12,3,12,databaseRef));
+        doctors.put(Doctor.idNo,new Doctor("Erkan","Sengul",35,'b',new Address(),13,4,12,databaseRef));
+        doctors.put(Doctor.idNo,new Doctor("Görkem","Ayri",46,'b',new Address(),14,5,12,databaseRef));
+        doctors.put(Doctor.idNo,new Doctor("Yusuf","Anıl",34,'b',new Address(),15,5,12,databaseRef));
+        doctors.put(Doctor.idNo,new Doctor("Ahmet","Mert",29,'b',new Address(),16,5,12,databaseRef));
+        doctors.put(Doctor.idNo,new Doctor("Seda","Mert",29,'b',new Address(),17,5,12,databaseRef));
 
         databaseRef.setDoctors(doctors);
     }
@@ -73,30 +73,14 @@ public class addUsers {
     }
 
     public void addPatientRecords(Database database){
-        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(1135)), 11111));
-        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(1135)), 11112));
-        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(1135)), 11113));
-        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(1120)),11111));
-        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(1111)), 11111));
-        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(1135)), 11118));
-        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(1135)), 11116));
-        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(1135)), 11115));
-        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(1135)), 11114));
-        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(1130)), 11111));
-
-        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(1116)), 11111));
-        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(1116)), 11112));
-        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(1117)), 11111));
-        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(1121)), 11111));
-        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(1122)), 11111));
-        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(1123)), 11111));
-        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(1124)), 11111));
-        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(1125)), 11111));
-        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(1125)), 11113));
-        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(1129)), 11111));
-        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(1125)), 11115));
-        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(1125)), 11116));
-        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(1125)), 11117));
+        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(801)), 201));
+        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(802)), 202));
+        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(803)), 203));
+        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(804)),202));
+        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(805)), 202));
+        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(806)), 202));
+        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(807)), 202));
+        database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(808)), 201));
 
     }
 

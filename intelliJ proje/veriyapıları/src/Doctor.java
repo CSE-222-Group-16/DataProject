@@ -44,6 +44,8 @@ public class Doctor extends Person {
         this.blockNumber=0;
         this.layerNumber=0;
         patientList = new LinkedList<>();
+        this.surgeryList = new ArrayList<>();
+
         databaseRef = database;
         this.setJobType(JobType.Doctor);
         setId(idNo);
@@ -53,7 +55,7 @@ public class Doctor extends Person {
     public Doctor(int id, Database database){
         super();
         this.officeNumber=0;
-        this.surgeryList = null;
+        this.surgeryList = new ArrayList<>();
         this.dayOff=false;
         this.blockNumber=0;
         this.layerNumber=0;
@@ -68,7 +70,8 @@ public class Doctor extends Person {
                   int officeName,int blockNumber, int layerNumber, Database database){
         super(name, surName, age, gender, address, idNo);
         this.officeNumber=officeName;
-        this.surgeryList = null;
+        patientList = new LinkedList<>();
+        this.surgeryList = new ArrayList<>();
         this.dayOff=false;
         this.blockNumber=blockNumber;
         this.layerNumber=layerNumber;

@@ -106,4 +106,9 @@ public class Pharmacist extends Person {
                 ", medicines=" + medicines +
                 '}';
     }
+    
+    @Override
+    public JobType getJobType() {
+        return JobType.Pharmacist;
+    }
 }

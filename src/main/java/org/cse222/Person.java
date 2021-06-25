@@ -93,6 +93,7 @@ public class Person implements PersonInterface,  Comparable<Person> {
 
     public Person(int id) {
         this.id = id;
+        jobType = JobType.Undeclared;
     }
 
     public void setDayOff(boolean dayOff) {

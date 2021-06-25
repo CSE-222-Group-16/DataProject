@@ -14,7 +14,8 @@ public class TechnicianWorker extends Person {
 
     public TechnicianWorker(int id, Database database){
         super();
-        setId(id);
+        setId(id);         
+        setJobType(JobType.TechnicianWorker);
         databaseRef = database;
     }
 
@@ -22,6 +23,8 @@ public class TechnicianWorker extends Person {
         super();
         setId(idNo);
         ++idNo;
+        setJobType(JobType.TechnicianWorker);
+
     }
 
     public class Menu{

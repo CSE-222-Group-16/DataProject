@@ -33,14 +33,13 @@ public class Doctor extends Person {
 
     private int layerNumber;
 
+    public static int idNo =201;
 
 
     Database databaseRef;
-
     public Doctor(Database database){
         super();
         this.officeNumber=0;
-        this.investigatePatient=0;
         this.surgeryList = null;
         this.dayOff=false;
         this.blockNumber=0;
@@ -48,20 +47,35 @@ public class Doctor extends Person {
         patientList = new LinkedList<>();
         databaseRef = database;
         this.setJobType(JobType.Doctor);
+        setId(idNo);
+        ++idNo;
+    }
+
+    public Doctor(int id, Database database){
+        super();
+        this.officeNumber=0;
+        this.surgeryList = null;
+        this.dayOff=false;
+        this.blockNumber=0;
+        this.layerNumber=0;
+        patientList = new LinkedList<>();
+        databaseRef = database;
+        this.setJobType(JobType.Doctor);
+        setId(id);
     }
 
 
-    public Doctor(String name, String surName, int age, char gender, Address address, int id,
-                  int officeName, int blockNumber, int layerNumber, Database database){
-        super(name, surName, age, gender, address, id);
+    public Doctor(String name, String surName, int age, char gender, Address address,
+                  int officeName,int blockNumber, int layerNumber, Database database){
+        super(name, surName, age, gender, address, idNo);
         this.officeNumber=officeName;
-        this.investigatePatient=0;
         this.surgeryList = null;
         this.dayOff=false;
         this.blockNumber=blockNumber;
         this.layerNumber=layerNumber;
         this.setJobType(JobType.Doctor);
         databaseRef = database;
+        ++idNo;
     }
 
     public Doctor(String name, String surname, int age, char gender, Address address, int id) {

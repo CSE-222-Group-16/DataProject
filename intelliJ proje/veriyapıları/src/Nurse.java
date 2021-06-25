@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -181,6 +182,7 @@ public class Nurse extends Person {
 
                 surgeryList.add(id);
                 System.out.println("Added!");
+                System.out.println(Arrays.toString(surgeryList.toArray()));
 
             } else if(menuOpt.equalsIgnoreCase("2")){
 
@@ -189,6 +191,8 @@ public class Nurse extends Person {
 
                 needSerumPatientsList.add(id);
                 System.out.println("Added!");
+                System.out.println(Arrays.toString(needSerumPatientsList.toArray()));
+
 
             } else if(menuOpt.equalsIgnoreCase("3")){
     
@@ -197,6 +201,8 @@ public class Nurse extends Person {
     
                 investigatePatientList.add(id);
                 System.out.println("Added!");
+                System.out.println(Arrays.toString(investigatePatientList.toArray()));
+
 
             } else if(menuOpt.equalsIgnoreCase("back")) break;
             else System.out.println("Unrecognized option. Try again.");

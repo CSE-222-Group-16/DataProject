@@ -150,4 +150,16 @@ public class Nurse extends Person {
 
     }
 
+    @Override
+    public String toString() {
+        return super.toString() +"Nurse{" +
+                ", surgeryList=" + surgeryList +
+                ", blockNumber=" + blockNumber +
+                ", layerNumber=" + layerNumber +
+                ", investigatePatientList=" + investigatePatientList +
+                ", needInjectionPatientsList=" + needInjectionPatientsList +
+                ", needSerumPatientsList=" + needSerumPatientsList +
+                '}';
+    }
+
 }

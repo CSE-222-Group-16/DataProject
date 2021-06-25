@@ -110,4 +110,17 @@ public class Patient extends Person {
     public boolean getNeedInjection() {
         return this.NeedInjection;
     }
+
+    @Override
+    public String toString() {
+        return super.toString()+ " Patient{" +
+                "recipeList=" + recipeList +
+                ", needAnalysis=" + needAnalysis +
+                ", analysisResults=" + analysisResults +
+                ", stayHospitalOrNot=" + stayHospitalOrNot +
+                ", roomNumber=" + roomNumber +
+                ", NeedInjection=" + NeedInjection +
+                ", needSerum=" + needSerum +
+                '}';
+    }
 }

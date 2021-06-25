@@ -85,4 +85,12 @@ public class Pharmacist extends Person {
         }
         return databaseRef.getMedicinePharmacy().get(0);
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " Pharmacist{" +
+                "recipeList=" + recipeList +
+                ", medicines=" + medicines +
+                '}';
+    }
 }

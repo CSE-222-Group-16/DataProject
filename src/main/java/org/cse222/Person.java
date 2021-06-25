@@ -246,4 +246,21 @@ public class Person implements PersonInterface,  Comparable<Person> {
     public int compareTo(Person o) {
         return this.getId() - o.getId();
     }
+
+    @Override
+    public String toString() {
+        int k;
+        StringBuilder stringBuilder = new StringBuilder ();
+        for ( k = 0; k < 45; k++) stringBuilder.append ("-");
+        stringBuilder.append ("\n");
+        stringBuilder.append (
+                "name='" + gender + '\'' +
+                        ", surname='" + getSurName() + '\'' +
+                        ", id=" + getId() + '\'' +
+                        ", job=" + getJobType());
+
+        stringBuilder.append ("\n\n");
+        return stringBuilder.toString ();
+        
+    }
 }

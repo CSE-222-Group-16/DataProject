@@ -258,4 +258,16 @@ public class Doctor extends Person {
     public void setCountHolidayDays(int countHolidayDays) {
         this.countHolidayDays = countHolidayDays;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() +" Doctor{" +
+                "dayOff=" + dayOff +
+                ", officeNumber=" + officeNumber +
+                ", surgeryList=" + surgeryList +
+                ", patientList=" + patientList +
+                ", blockNumber=" + blockNumber +
+                ", layerNumber=" + layerNumber +
+                '}';
+    }
 }

@@ -44,6 +44,7 @@ public class Nurse extends Person {
         this.needSerumPatientsList = needSerumPatientsList;
     }
 
+    public static int idNo = 401;
     public Nurse(Database database){
         super();
         this.surgeryList = new ArrayList<Integer>();
@@ -57,7 +58,7 @@ public class Nurse extends Person {
         ++idNo;
     }
 
-    public Nurse(Database database){
+    public Nurse(int id,Database database){
         super();
         this.surgeryList = new ArrayList<Integer>();
         this.investigatePatientList = new ArrayList<Integer>();
@@ -66,8 +67,7 @@ public class Nurse extends Person {
         this.blockNumber=0;
         this.layerNumber=0;
         databaseRef = database;
-        setId(idNo);
-        ++idNo;
+        setId(id);
     }
 
     public Nurse(String name, String surName, int age, char gender, Address address

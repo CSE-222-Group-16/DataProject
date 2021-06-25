@@ -5,11 +5,23 @@ import java.util.Scanner;
 
 public class TechnicianWorker extends Person {
 
-    private Database databaseRef;
     private int blockNumber;
 
-    public void setblockNumber(int blockNumber) {
-        this.blockNumber = blockNumber;
+    private int layerNumber;
+
+    static int idNo = 601;
+    private Database databaseRef;
+
+    public TechnicianWorker(int id, Database database){
+        super();
+        setId(id);
+        databaseRef = database;
+    }
+
+    public TechnicianWorker(Database database){
+        super();
+        setId(idNo);
+        ++idNo;
     }
 
     public class Menu{
@@ -65,4 +77,19 @@ public class TechnicianWorker extends Person {
         }
     }
 
+    public int getBlockNumber() {
+        return blockNumber;
+    }
+
+    public void setBlockNumber(int blockNumber) {
+        this.blockNumber = blockNumber;
+    }
+
+    public int getLayerNumber() {
+        return layerNumber;
+    }
+
+    public void setLayerNumber(int layerNumber) {
+        this.layerNumber = layerNumber;
+    }
 }

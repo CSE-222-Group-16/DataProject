@@ -131,4 +131,12 @@ static int idNo = 301;
     public void setLayerNumber(int layerNumber) {
         this.layerNumber = layerNumber;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() +"Consultant{" +
+                "blockNumber=" + blockNumber +
+                ", layerNumber=" + layerNumber +
+                '}';
+    }
 }

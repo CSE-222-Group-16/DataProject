@@ -6,18 +6,6 @@ public class Pharmacist extends Person {
 
     private Database databaseRef;
 
-    private String name;
-
-    private String surname;
-
-    private int age;
-
-    private char gender;
-
-    private Address address;
-
-    private Database database;
-
     private JobType jobType;
 
     private ArrayList<Medicine> recipeList;

@@ -2,8 +2,16 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.TreeMap;
 
+/**
+ * This class is for adding users before we 
+ * start our system.
+ */
 public class addUsers {
     
+    /**
+     * Adds doctor to the database.
+     * @param databaseRef
+     */
     public void addDoctors(Database databaseRef){
         Hashtable<Integer,Doctor> doctors = new Hashtable<>();
 
@@ -33,6 +41,10 @@ public class addUsers {
         databaseRef.setDoctors(doctors);
     }
 
+    /**
+     * Add consultants to the database
+     * @param database
+     */
     public void addConsultant(Database database){
 
         ArrayList<Consultant> consultants = new ArrayList<>();
@@ -45,6 +57,10 @@ public class addUsers {
     }
 
 
+    /**
+     * Add patients to the database.
+     * @param database
+     */
     public void addPatients(Database database){
         database.getAllPatients().add(new Patient("Ayse","Alem",25,'g',new Address(),false,1,false,false));
         database.getAllPatients().add(new Patient("Ali","Alem",25,'g',new Address(),false,1,false,false));
@@ -76,6 +92,11 @@ public class addUsers {
 
     }
 
+    /**
+     * Add initial patient Records to the
+     * database.
+     * @param database
+     */
     public void addPatientRecords(Database database){
         database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(801)), 201));
         database.getPatientRecords().add(new PatientRecord(database.getAllPatients().find(new Person(802)), 202));
@@ -88,6 +109,10 @@ public class addUsers {
 
     }
 
+    /**
+     * Adds nurse to the database.
+     * @param database
+     */
     public void addNurse(Database database){
         database.getNurses().add(new Nurse("Amine","Alem",25,'g',new Address(),1,1,database));
         database.getNurses().add(new Nurse("Ayse","Alem",25,'g',new Address(),1,1,database));
@@ -103,6 +128,11 @@ public class addUsers {
 
     }
 
+    /**
+     * Adds technicial workers to the
+     * database.
+     * @param database
+     */
     public void addTech(Database database){
         database.getTechnicianWorkers().add(new TechnicianWorker(database));
         database.getTechnicianWorkers().add(new TechnicianWorker(database));

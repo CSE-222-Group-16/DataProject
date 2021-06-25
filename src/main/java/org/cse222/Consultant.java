@@ -7,6 +7,7 @@ public class Consultant extends Person {
     private int layerNumber;
 
     private Database databaseRef;
+static int idNo = 301;
 
 
     public Consultant(){
@@ -14,6 +15,8 @@ public class Consultant extends Person {
         this.blockNumber=0;
         this.layerNumber=0;
         setJobType(JobType.Consultant);
+        setId(idNo);
+        ++idNo;
     }
 
     public Consultant(Database database){
@@ -22,17 +25,29 @@ public class Consultant extends Person {
         this.layerNumber=0;
         databaseRef = database;
         setJobType(JobType.Consultant);
-
+        setId(idNo);
+        ++idNo;
     }
 
+    public Consultant(int id,Database database){
+        super();
+        this.blockNumber=0;
+        this.layerNumber=0;
+        databaseRef = database;
+        setJobType(JobType.Consultant);
+        setId(id);
+    }
+
+
     public Consultant(String name, String surName, int age, char gender,
-                      Address address, int id, int blockNumber, int layerNumber,
+                      Address address, int blockNumber, int layerNumber,
                       Database database){
-        super(name, surName, age, gender, address, id);
+        super(name, surName, age, gender, address, idNo);
         this.blockNumber=blockNumber;
         this.layerNumber=layerNumber;
         databaseRef = database;
         setJobType(JobType.Consultant);
+        ++idNo;
 
     }
 

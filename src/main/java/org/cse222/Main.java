@@ -15,6 +15,8 @@ public class Main {
         addUser.addPatients(database);
         addUser.addPatientRecords(database);
         addUser.addChiefPhysician(database);
+        addUser.addNurse(database);
+        addUser.addTech(database);
         database.allUsersP();
 
 
@@ -53,7 +55,7 @@ public class Main {
                     } else if (loginPerson.getJobType() == JobType.Pharmacist){
                         new Pharmacist(database).menu();
                     } else if (loginPerson.getJobType() == JobType.TechnicianWorker){
-                        TechnicianWorker.Menu m;
+                        new TechnicianWorker(database).Menu();
                     } else {
                         System.out.println("Undefined type!");
                     }

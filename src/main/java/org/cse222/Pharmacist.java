@@ -86,6 +86,36 @@ public class Pharmacist extends Person {
         return databaseRef.getMedicinePharmacy().get(0);
     }
 
+    private void menu(){
+        String menuOpt = "notBack";
+
+        while(!menuOpt.equals("back")){
+            System.out.println("-------------------------");
+            System.out.println("-----Pharmacist Menu-----");
+            System.out.println("-------------------------");
+            System.out.println("--1) See Prescription of the Patient ---");
+            System.out.println("-------------------------");
+     
+            Scanner reader = new Scanner(System.in);
+
+            menuOpt = reader.nextLine();
+
+
+            if(menuOpt.equalsIgnoreCase("1")) {
+
+                System.out.println("Add Patient ID::");
+                int id  = reader.nextInt();
+
+                
+                System.out.println("Added!");
+
+            
+
+            } else if(menuOpt.equalsIgnoreCase("back")) break;
+            else System.out.println("Unrecognized option. Try again.");
+        }
+    }
+
     @Override
     public String toString() {
         return super.toString() + " Pharmacist{" +

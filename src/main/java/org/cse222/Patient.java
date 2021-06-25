@@ -21,27 +21,38 @@ public class Patient extends Person {
 
     private boolean needSerum;
 
+    public static int idNo = 801;
 
-    public Patient() {
+   public Patient(){
         super();
-        this.recipeList = new ArrayList<Medicine>();
-        this.needAnalysis = new ArrayList<String>();
-        this.analysisResults = new ArrayList<String>();
-        this.stayHospitalOrNot = false;
-        this.NeedInjection = false;
-        this.needSerum = false;
-        this.roomNumber = 0;
+        this.recipeList=new ArrayList<String>();
+        this.needAnalysis=new ArrayList<String>();
+        this.analysisResults=new ArrayList<String>();
+        this.stayHospitalOrNot=false;
+        this.NeedInjection=false;
+        this.needSerum=false;
+        this.roomNumber=0;
+        setJobType(JobType.Patient);
+        setId(idNo);
+        idNo++;
     }
 
-    public Patient(String name, String surName, int age, char gender, Address address, int id, boolean stayHospitalOrNot, int roomNumber, boolean needSerum, boolean NeedInjection) {
-        super(name, surName, age, gender, address, id);
-        this.recipeList = new ArrayList<Medicine>();
-        this.needAnalysis = new ArrayList<String>();
-        this.analysisResults = new ArrayList<String>();
-        this.NeedInjection = NeedInjection;
-        this.needSerum = needSerum;
-        this.stayHospitalOrNot = stayHospitalOrNot;
-        this.roomNumber = roomNumber;
+    public Patient(int id,Database database){
+        super();
+        setId(id);
+    }
+
+    public Patient(String name, String surName, int age, char gender, Address address, boolean stayHospitalOrNot, int roomNumber, boolean needSerum, boolean NeedInjection){
+        super(name, surName, age, gender, address, idNo);
+        this.recipeList=new ArrayList<String>();
+        this.needAnalysis=new ArrayList<String>();
+        this.analysisResults=new ArrayList<String>();
+        this.NeedInjection=NeedInjection;
+        this.needSerum=needSerum;
+        this.stayHospitalOrNot=stayHospitalOrNot;
+        this.roomNumber=roomNumber;
+        setJobType(JobType.Patient);
+        ++idNo;
     }
 
     public void setNeedSerum(boolean needSerum) {

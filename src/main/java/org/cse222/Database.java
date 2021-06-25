@@ -29,9 +29,11 @@ public class Database {
     
     private SkipList<PatientRecord> patientRecords;
     
-    private AVLTree<Patient> allPatients ;
+    private AVLTree<Person> allPatients ;
     
     private PriorityQueue<Patient> emergencyPatients;
+
+    private ArrayList<Person> pharmacists;
     
     private AVLTree<Person> allUsers;
     
@@ -50,6 +52,7 @@ public class Database {
         consultants = new ArrayList<>();
         medicinePatient = new ArrayList<>();
         medicinePharmacy = new ArrayList<>();
+        pharmacists = new ArrayList<>();
         patientRecords = new SkipList<>();
         allPatients = new AVLTree<>();     
         emergencyPatients = new PriorityQueue<>();
@@ -64,11 +67,14 @@ public class Database {
         blockStructureGraph = new AdjacencyListMatrix<> (3,false,blocks);   */
     }
 
-    public AVLTree<Patient> getAllPatients(){
-    	return patients;
+    public void setPharmacists(ArrayList<Person> pharmacists){
+        this.pharmacists = pharmacists;
     }
-    
-    
+
+    public ArrayList<Person> getPharmacists(){
+        return pharmacists;
+    }
+
     public void setChiefPhysician(ChiefPhysician chiefPhysician){
         this.chiefPhysician = chiefPhysician;
     }
@@ -130,7 +136,11 @@ public class Database {
         
         //Chief P. added
         allUsers.add(chiefPhysician);
-        
+
+        for(Person pharmacist : pharmacists){
+            allUsers.add(pharmacist);
+        }
+
         System.out.println(allUsers.getSize());
 
     }

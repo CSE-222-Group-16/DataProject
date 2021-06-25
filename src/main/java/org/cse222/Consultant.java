@@ -60,6 +60,7 @@ static int idNo = 301;
             System.out.println("-------------------------");
             System.out.println("--1) Register Patient ---");
             System.out.println("-------------------------");
+            System.out.println("--2) Structure of Hospital");
             System.out.println("-------------------------");
             Scanner reader = new Scanner(System.in);
 

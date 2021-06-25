@@ -51,22 +51,46 @@ static int idNo = 301;
 
     }
 
-    public void ConsultantMenu(){
-        int k;
-		for ( k = 0; k < 45; k++) System.out.print("-");
-		System.out.print("\n"+"   ");
-		System.out.println("Welcome Consultant "+ getName()+" "+getSurname());
-		for ( k = 0; k < 45; k++) System.out.print("-");
-		System.out.print("\n");
-		for ( k = 0; k < 45; k++) System.out.print("-");  System.out.println();
-		System.out.println("[1] Register a patient");
-		for ( k = 0; k < 45; k++) System.out.print("-");  System.out.println();
-		System.out.println("[2] See structure of the Hospital");
-		for ( k = 0; k < 45; k++) System.out.print("-");  System.out.println();
-		System.out.print("\n");
+    private void menu(){
+        String menuOpt = "notBack";
 
+        while(!menuOpt.equals("back")){
+            System.out.println("-------------------------");
+            System.out.println("-----Consultant Menu-----");
+            System.out.println("-------------------------");
+            System.out.println("--1) Register Patient ---");
+            System.out.println("-------------------------");
+            System.out.println("-------------------------");
+            Scanner reader = new Scanner(System.in);
+
+            menuOpt = reader.nextLine();
+
+
+             if(menuOpt.equalsIgnoreCase("1")) {
+                
+                System.out.println("Enter Name:");
+                String name = reader.nextLine();
+                System.out.println("Enter Surname:");
+                String surname = reader.nextLine();
+                System.out.println("Enter Age:");
+                int age  = reader.nextInt();
+                
+                System.out.println("Enter Doctor Id: ");
+                int id = reader.nextInt();
+
+                databaseRef.getDoctors().get(id).getPatientList().add(new Patient(name,surname,age,'g',new Address(),false,0,false,false));
+                
+                System.out.println("Patient added: " + databaseRef.getDoctors().get(id).getPatientList().peek().getName() 
+                        +" to Doctor: " +databaseRef.getDoctors().get(id).getName() );
+
+            } else if(menuOpt.equalsIgnoreCase("2")){
+                 seeHospitalStructure();
+             }
+            else if(menuOpt.equalsIgnoreCase("back")) break;
+            else System.out.println("Unrecognized option. Try again.");
+        }
     }
-    
+
     public void seeHospitalStructure(){
         databaseRef.printHospital();
     }
@@ -96,22 +120,6 @@ static int idNo = 301;
         );
     }
 
-    public static void main(String[] args) {
-        Database database = new Database();
-        database.getDoctors().put(0,new Doctor(database));
-        database.getDoctors().get(0).setName("Ali");
-
-        Consultant consultant = new Consultant(database);
-        consultant.ConsultantMenu();
-        consultant.patientRegistration(new Patient(),database.getDoctors().get(0));
-        consultant.patientRegistration(new Patient(),database.getDoctors().get(0));
-        consultant.patientRegistration(new Patient(),database.getDoctors().get(0));
-        consultant.patientRegistration(new Patient(),database.getDoctors().get(0));
-
-        System.out.println(database.getDoctors().get(0).getPatientList().size());
-
-
-    }
 
 
     public void setBlockNumber(int blockNumber) {

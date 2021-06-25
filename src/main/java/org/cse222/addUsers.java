@@ -118,15 +118,8 @@ public class addUsers {
     }
 
     public void addTech(Database database){
-        database.getTechnicianWorkers().add(new TechnicianWorker(database));
-        database.getTechnicianWorkers().add(new TechnicianWorker(database));
-        database.getTechnicianWorkers().add(new TechnicianWorker(database));
-        database.getTechnicianWorkers().add(new TechnicianWorker(database));
-        database.getTechnicianWorkers().add(new TechnicianWorker(database));
-        database.getTechnicianWorkers().add(new TechnicianWorker(database));
-        database.getTechnicianWorkers().add(new TechnicianWorker(database));
-
-
+        database.getTechnicianWorkers().add(new TechnicianWorker("Sinan", "Gönel", 25, 'b', new Address(), 1, 1,database));
+        database.getTechnicianWorkers().add(new TechnicianWorker("Feyzi", "Diyar", 48, 'b', new Address(), 2, 1,database));
     }
    
 

@@ -14,18 +14,29 @@ public class ChiefPhysician extends Person {
 
     private int countDayOff;
 
+    public static int idNo = 701;
+
     public ChiefPhysician(){
         super();
         this.doctors = new KWQueue<>();
+        setJobType(JobType.ChiefPhysician);
+        setId(idNo);
+        ++idNo;
     }
 
-    public ChiefPhysician(String name, String surName, int age, char gender, Address address, int id, Database database){
-        super(name, surName, age, gender, address, id);
+    public ChiefPhysician(String name, String surName, int age, char gender, Address address, Database database){
+        super(name, surName, age, gender, address, idNo);
         databaseRef = database;
+        setJobType(JobType.ChiefPhysician);
+        ++idNo;
     }
 
     public ChiefPhysician(Database database){
         databaseRef = database;
+        setId(idNo);
+        ++idNo;
+        setJobType(JobType.ChiefPhysician);
+
     }
 
     public boolean confirmOperation(Operation newOp){

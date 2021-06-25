@@ -14,9 +14,9 @@ public class TechnicianWorker extends Person {
 
     public TechnicianWorker(int id, Database database){
         super();
-        setId(id);         
-        setJobType(JobType.TechnicianWorker);
+        setId(id);
         databaseRef = database;
+        setJobType(JobType.TechnicianWorker);
     }
 
     public TechnicianWorker(Database database){
@@ -24,12 +24,12 @@ public class TechnicianWorker extends Person {
         setId(idNo);
         ++idNo;
         setJobType(JobType.TechnicianWorker);
+        databaseRef = database;
 
     }
 
-    public class Menu{
-        private Scanner reader = new Scanner(System.in);
-        Menu(){
+    public void Menu(){
+        Scanner reader = new Scanner(System.in);
             String menuOpt;
             System.out.print("Welcome back ");
             char gen = getGender();
@@ -46,7 +46,10 @@ public class TechnicianWorker extends Person {
                 else System.out.println("Unrecognized option. Try again.");
             }while(true);
         }
+
         void anRes(){
+            Scanner reader = new Scanner(System.in);
+
             String patientn;
             String line;
             Patient mypat;
@@ -72,7 +75,6 @@ public class TechnicianWorker extends Person {
             }while (true);
             fillAnalysisResults(mypat,anLines);
         }
-    }
     /*addAnalysisResults parametresi generate edilecek!!!! */
     public void fillAnalysisResults(Patient patient, ArrayList<String> needAnalysis){
         for(int i=0;i<needAnalysis.size();++i){
@@ -95,4 +97,13 @@ public class TechnicianWorker extends Person {
     public void setLayerNumber(int layerNumber) {
         this.layerNumber = layerNumber;
     }
+
+    @Override
+    public String toString() {
+        return "TechnicianWorker{" +
+                "blockNumber=" + blockNumber +
+                ", layerNumber=" + layerNumber +
+                '}';
+    }
 }
+

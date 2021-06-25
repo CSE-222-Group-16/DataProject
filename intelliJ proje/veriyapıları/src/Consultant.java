@@ -1,6 +1,10 @@
 
 import java.util.Scanner;
 
+/**
+ * Consultant insert patients into
+ * a doctors patient queue.
+ */
 public class Consultant extends Person {
 
     private int blockNumber;
@@ -8,7 +12,8 @@ public class Consultant extends Person {
     private int layerNumber;
 
     private Database databaseRef;
-static int idNo = 301;
+
+    static int idNo = 301;
 
 
     public Consultant(){
@@ -52,6 +57,9 @@ static int idNo = 301;
 
     }
 
+    /**
+     * Menu
+     */
     public void menu(){
         String menuOpt = "notBack";
 
@@ -93,6 +101,9 @@ static int idNo = 301;
         }
     }
 
+    /**
+     * Prints structure of the hospital
+     */
     public void seeHospitalStructure(){
         databaseRef.printHospital();
     }

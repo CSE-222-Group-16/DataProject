@@ -2,6 +2,10 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Responsible for analysis
+ * of the patients.
+ */
 public class TechnicianWorker extends Person {
 
     private int blockNumber;
@@ -27,6 +31,9 @@ public class TechnicianWorker extends Person {
 
     }
 
+    /**
+     * Menu
+     */
     public void Menu(){
         Scanner reader = new Scanner(System.in);
             String menuOpt;
@@ -46,6 +53,10 @@ public class TechnicianWorker extends Person {
             }while(true);
         }
 
+        /**
+         * Result of the analaysis is 
+         * added here.
+         */
         void anRes(){
             Scanner reader = new Scanner(System.in);
 

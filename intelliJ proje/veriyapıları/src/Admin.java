@@ -1,6 +1,10 @@
 
 import java.util.Scanner;
 
+/**
+ * Admin is a owner of the system.
+ * He/She is a most powerful user.
+ */
 public class Admin extends Person {
 
     Database databaseRef;
@@ -19,29 +23,58 @@ public class Admin extends Person {
         setJobType(JobType.Admin);
     }
 
+    /**
+     * Assigns new floor to the nurse
+     * and block.
+     * @param newNurse
+     * @param blockNumber
+     * @param floorNumber
+     */
     public void assignNurseToFloor(Nurse newNurse, int blockNumber, int floorNumber){
         newNurse.setBlockNumber(blockNumber);
         newNurse.setLayerNumber(floorNumber);
 
     }
 
+    /**
+     * Assign new floor to the nurse, and block.
+     * @param newConsultant
+     * @param blockNumber
+     * @param floorNumber
+     */
     public void assignConsultantToFloor(Consultant newConsultant, int blockNumber, int floorNumber){
         newConsultant.setBlockNumber(blockNumber);
         newConsultant.setLayerNumber(floorNumber);
 
     }
 
+    /**
+     * Assign new block and floor number to the doctor.
+     * @param newDoctor
+     * @param blockNumber
+     * @param officeNumber
+     * @param floorNumber
+     */
     public void assignDoctorToBlock(Doctor newDoctor, int blockNumber, int officeNumber, int floorNumber){
         newDoctor.setBlockNumber(blockNumber);
         newDoctor.setLayerNumber(floorNumber);
         newDoctor.setOfficeNumber(officeNumber);
     }
 
+    /**
+     * Assign new block number to the
+     * tech worker.
+     * @param newTechnicianWorker
+     * @param blockNumber
+     */
     public void assignTechnicalWorkerToBlock(TechnicianWorker newTechnicianWorker, int blockNumber){
         newTechnicianWorker.setBlockNumber(blockNumber);
 
     }
 
+    /**
+     * Menu of a class.
+     */
     public void menu(){
         String menuOpt = "notBack";
 

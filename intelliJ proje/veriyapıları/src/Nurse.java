@@ -4,6 +4,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Nurse, treats patient with the 
+ * doctors.
+ */
 public class Nurse extends Person {
 
     Database databaseRef;
@@ -157,6 +161,9 @@ public class Nurse extends Person {
 
     }
 
+    /**
+     * Menu
+     */
     public void menu(){
         String menuOpt = "notBack";
 

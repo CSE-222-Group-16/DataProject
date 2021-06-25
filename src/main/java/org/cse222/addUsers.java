@@ -1,4 +1,5 @@
 package org.cse222;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.TreeMap;
@@ -117,15 +118,8 @@ public class addUsers {
     }
 
     public void addTech(Database database){
-        database.getTechnicianWorkers().add(new TechnicianWorker(database));
-        database.getTechnicianWorkers().add(new TechnicianWorker(database));
-        database.getTechnicianWorkers().add(new TechnicianWorker(database));
-        database.getTechnicianWorkers().add(new TechnicianWorker(database));
-        database.getTechnicianWorkers().add(new TechnicianWorker(database));
-        database.getTechnicianWorkers().add(new TechnicianWorker(database));
-        database.getTechnicianWorkers().add(new TechnicianWorker(database));
-
-
+        database.getTechnicianWorkers().add(new TechnicianWorker("Sinan", "Gönel", 25, 'b', new Address(), 1, 1,database));
+        database.getTechnicianWorkers().add(new TechnicianWorker("Feyzi", "Diyar", 48, 'b', new Address(), 2, 1,database));
     }
    
 
@@ -160,8 +154,11 @@ public class addUsers {
 
         database.setMedicinePatient(medicines);
     }
-    
-    
+
+    public void addPharmacists(Database database){
+        ArrayList<Person> pharmacists = new ArrayList<Person>();
+        pharmacists.add(new Pharmacist("Ahmet Hilmi", "Berber", 22, 'e', new Address("Turkey", "İstanbul", "Kartal", "Cevizli", 5), 121212, database));
+    }
 
     public void addChiefPhysician(Database database){
         new ChiefPhysician("Merve", "Gürler", 55, 'g', new Address(), 111, database);

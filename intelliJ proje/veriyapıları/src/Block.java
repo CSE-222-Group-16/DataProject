@@ -3,6 +3,10 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.TimeZone;
 
+/**
+ * To create the physical
+ *  structure of the hospital.
+ */
 public class Block {
 
     private int blockNumber;
@@ -40,6 +44,11 @@ public class Block {
 
         return blockNumber;
     }
+
+    /**
+     * Return floors on the block.
+     * @return
+     */
     public ArrayList<Integer> getFloorList(){
         return floorIdList;
     }

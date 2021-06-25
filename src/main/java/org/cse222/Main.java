@@ -6,13 +6,13 @@ public class Main {
     public static void main(String[] args) {
         //database created
         Database database= new Database();
-
         addUsers addUser = new addUsers();
         addUser.addConsultant(database);
         addUser.addDoctors(database);
         addUser.addMedicinePatient(database);
         addUser.addMedicinePharmacy(database);
         addUser.addPatients(database);
+        addUser.addPharmacists(database);
         addUser.addPatientRecords(database);
         addUser.addChiefPhysician(database);
         addUser.addNurse(database);

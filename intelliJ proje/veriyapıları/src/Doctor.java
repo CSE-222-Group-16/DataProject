@@ -1,8 +1,9 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
+import java.lang.reflect.Parameter;
+import java.util.*;
 
+/**
+ * Treats patients.
+ */
 public class Doctor extends Person {
 
     private int countHolidayDays;
@@ -96,8 +97,8 @@ public class Doctor extends Person {
         this.layerNumber=layerNumber;
     }
 
-    public void treatNextPatient(int nextPatientId){
-        this.investigatePatient=nextPatientId;
+    public void treatNextPatient(int id){
+        databaseRef.getPatientRecords().add(new PatientRecord(databaseRef.getDoctors().get(id).patientList.poll(),id,"12-12-2002"));
     }
 
     public void makeRecipe(Patient patient, ArrayList<Medicine> recipeList){
@@ -107,6 +108,11 @@ public class Doctor extends Person {
         }
     }
 
+    /**
+     * Makes analysis to the patient given
+     * @param patient
+     * @param analysisList
+     */
     public void makeAnalysis(Patient patient, ArrayList<String> analysisList){
         for(int i=0;i<analysisList.size();++i){
             patient.addAnalysis(analysisList.get(i));
@@ -155,6 +161,9 @@ public class Doctor extends Person {
         this.dayOff = dayOff;
     }
 
+    /**
+     * Menu
+     */
     public void DoctorMenu(){
         String menuOpt = "notBack";
 
@@ -179,6 +188,9 @@ public class Doctor extends Person {
         }
     }
 
+    /**
+     * Dayy of request
+     */
     private void DayOff() {
         System.out.println("Requesting day off from chief physician...\nPlease wait!");
 
@@ -188,37 +200,57 @@ public class Doctor extends Person {
 
         chiefPhysician.ChiefPhysicianMenu(this);
     }
-    private void recipe() {
+
+    /**
+     * Prepare recipe
+     */
+    private void recipe(int id) {
         System.out.println("Preparing recipe...\nPlease wait!");
 
         ArrayList<Medicine> recipe = databaseRef.getMedicinePatient();
 
-        this.makeRecipe(patientList.peek(), recipe);
+        this.makeRecipe(databaseRef.getDoctors().get(id).patientList.peek(), recipe);
 
         System.out.println("Recipe prepared.");
     }
 
-    private void analysis() {
+    /**
+     * Prepare anaylsis
+     */
+    private void analysis(int id) {
         System.out.println("Preparing analysis...\nPlease wait!");
 
         ArrayList<String> analysis = new ArrayList();
         analysis.add("add analysis");
 
-        this.makeAnalysis(patientList.peek(), analysis);
+        this.makeAnalysis(databaseRef.getDoctors().get(id).patientList.peek(), analysis);
 
         System.out.println("Analysis is done.");
 
     }
-    private void testResults() {
+
+    /**
+     * Perepare Test results
+     */
+    private void testResults(int id) {
         System.out.println("Preparing test results...\nPlease wait!");
 
-        for(int i = 0; i < this.seeTestResults(patientList.peek()).size(); i++){
-            System.out.println(this.seeTestResults(patientList.peek()).get(i));
+        int count = 0;
+        for(int i = 0; i < Objects.requireNonNull(databaseRef.getDoctors().get(id).patientList.peek()).getAnalysisResults().size(); i++){
+            System.out.println( Objects.requireNonNull(databaseRef.getDoctors().get(id).patientList.peek()).getAnalysisResults().get(i));
+            ++count;
         }
 
-        System.out.println("All test results printed.");
+        if (count == 0){
+            System.out.println("No analysis found!");
+        }else {
+            System.out.println("All test results printed.");
+        }
     }
 
+    /**
+     * Treating sub menu, and choosing.
+     */
     private void treat() {
         System.out.println("Enter doctor ID:");
         Scanner read = new Scanner(System.in);
@@ -228,7 +260,13 @@ public class Doctor extends Person {
             return;
         }
 
-        this.treatNextPatient(patientList.peek().getId());
+        System.out.println("Patient list size before treat next patient: " +
+                databaseRef.getDoctors().get(doctor).getPatientList().size());
+
+        this.treatNextPatient(doctor);
+        System.out.println("Patient list size after treat next patient: " +
+                databaseRef.getDoctors().get(doctor).getPatientList().size());
+
         String menuOpt = "notBack";
         while(!menuOpt.equals("back")) {
             System.out.println("--1) Make Recipe---");
@@ -243,9 +281,9 @@ public class Doctor extends Person {
 
             menuOpt = reader.nextLine();
 
-            if (menuOpt.equalsIgnoreCase("1")) recipe();
-            else if (menuOpt.equalsIgnoreCase("2")) analysis();
-            else if (menuOpt.equalsIgnoreCase("3")) testResults();
+            if (menuOpt.equalsIgnoreCase("1")) recipe(doctor);
+            else if (menuOpt.equalsIgnoreCase("2")) analysis(doctor);
+            else if (menuOpt.equalsIgnoreCase("3")) testResults(doctor);
             else if(menuOpt.equalsIgnoreCase("back")) break;
             else System.out.println("Unrecognized option. Try again.");
         }

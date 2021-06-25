@@ -3,6 +3,10 @@
 import java.util.Iterator;
 import java.util.Scanner;
 
+/**
+ * There is only one chief phy. in
+ * system. It is also a doctor.
+ */
 public class ChiefPhysician extends Person {
     private int MAX_HOLIDAY_DAY = 5;
 
@@ -39,14 +43,32 @@ public class ChiefPhysician extends Person {
 
     }
 
+    /**
+     * confirms given operation
+     * @param newOp
+     * @return
+     */
     public boolean confirmOperation(Operation newOp){
 
         return true;
     }
+
+    /**
+     * Rejects given operation
+     * @param newOp
+     * @return
+     */
     public boolean rejectOperation(Operation newOp){
 
         return false;
     }
+
+    /**
+     * Answers day off requests of the
+     * doctors.
+     * @param newPerson
+     * @return
+     */
     public boolean dayOff(Person newPerson){
         /**
          * first check if newPerson request a day off
@@ -105,6 +127,10 @@ public class ChiefPhysician extends Person {
         else return false;
     }
 
+    /**
+     * Menu
+     * @param person
+     */
     public void ChiefPhysicianMenu(Person person){
         String menuOpt = "notBack";
 
@@ -126,8 +152,17 @@ public class ChiefPhysician extends Person {
         }
     }
 
+    /**
+     * Prints dayy of agree.
+     * @param person
+     */
     public void DayOff(Person person){
         if(this.dayOff(this)) System.out.println("You can go travel!!!");
         else System.out.println("You can not go travel, wait for available days!!!");
+    }
+    
+     @Override
+    public JobType getJobType() {
+        return JobType.ChiefPhysician;
     }
 }

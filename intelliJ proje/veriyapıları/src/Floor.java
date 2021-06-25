@@ -1,6 +1,10 @@
 
 import java.util.ArrayList;
 
+/**
+ * Part of the physical structure of
+ * of the hospital.
+ */
 public class Floor {
 
     private int blockNumber;

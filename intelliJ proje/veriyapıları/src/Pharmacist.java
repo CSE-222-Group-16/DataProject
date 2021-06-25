@@ -2,6 +2,10 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Responsible for the medicine 
+ * process of the patient.
+ */
 public class Pharmacist extends Person {
 
     private Database databaseRef;
@@ -31,6 +35,10 @@ public class Pharmacist extends Person {
         ++idNo;
     }
 
+    /**
+     * See prescription of the medicine
+     * @param recipeList
+     */
     public void seePrescription(ArrayList<Medicine> recipeList) {
         for (int i = 0; i < recipeList.size(); i++) {
             for (int j = 0; j < medicines.size(); j++) {
@@ -45,6 +53,10 @@ public class Pharmacist extends Person {
         this.jobType = jobType;
     }
 
+    /**
+     * If stocks are done, updates.
+     * @param newMedicines
+     */
     public void updateStocks(ArrayList<Medicine> newMedicines) {
         for(int i = 0; i < newMedicines.size(); i++){
             for (int j = 0; j < medicines.size(); j++) {
@@ -55,6 +67,10 @@ public class Pharmacist extends Person {
         }
     }
 
+    /**
+     * Used for find the cheapest product.
+     * @return
+     */
     public Medicine findCheapestProduct(){
         for(int i = 0; i < databaseRef.getMedicinePharmacy().size(); i++){
             for(int j = 0; j < databaseRef.getMedicinePharmacy().size()-i-1; j++){
@@ -69,6 +85,9 @@ public class Pharmacist extends Person {
         return databaseRef.getMedicinePharmacy().get(0);
     }
 
+    /**
+     * Menu
+     */
     public void menu(){
         String menuOpt = "notBack";
 

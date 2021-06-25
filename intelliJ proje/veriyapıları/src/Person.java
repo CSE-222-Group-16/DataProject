@@ -1,5 +1,9 @@
 import java.util.Objects;
 
+/**
+ * JobType shows the type
+ * of the job.
+ */
 enum JobType {
     Admin,
     Doctor,

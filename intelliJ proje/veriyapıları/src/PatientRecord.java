@@ -1,5 +1,10 @@
 import java.util.Objects;
 
+/**
+ * Treated patients records is 
+ * kept in this class, with id
+ * and maybe date.
+ */
 public class PatientRecord implements Comparable<PatientRecord>{
 
     /**

@@ -39,6 +39,9 @@ public class Database {
     
     ChiefPhysician chiefPhysician;
     
+    private ArrayList<TechnicianWorker> technicianWorkers;
+
+    
     /**
      * Needed objects will be added.
      */
@@ -54,6 +57,8 @@ public class Database {
         allUsers = new AVLTree<>();
         nurses = new ArrayList<>();
         chiefPhysician = new ChiefPhysician();
+        technicianWorkers = new ArrayList<>();
+
     /*    floors.add(1); floors.add(2); floors.add(3);floors.add(4);floors.add(4);
         Block[] blocks = new Block[]{new Block (1,floors),new Block (2,floors),new Block (3,floors)};
         blockStructureGraph = new AdjacencyListMatrix<> (3,false,blocks);   */
@@ -112,6 +117,14 @@ public class Database {
         for (Nurse nurs : nurses) {
             allUsers.add(nurs);
         }
+        
+        //TechWorker added
+        for (TechnicianWorker technicianWorker : technicianWorkers) {
+            allUsers.add(technicianWorker);
+        }
+        
+        //Chief P. added
+        allUsers.add(chiefPhysician);
         
         System.out.println(allUsers.getSize());
 
@@ -178,6 +191,14 @@ public class Database {
 
     public void setMedicinePatient(ArrayList<Medicine> medicines){
         this.medicinePatient = medicines;
+    }
+    
+    public ArrayList<TechnicianWorker> getTechnicianWorkers() {
+        return technicianWorkers;
+    }
+
+    public void setTechnicianWorkers(ArrayList<TechnicianWorker> technicianWorkers) {
+        this.technicianWorkers = technicianWorkers;
     }
     
     public AVLTree<Person> getAllUsers() {

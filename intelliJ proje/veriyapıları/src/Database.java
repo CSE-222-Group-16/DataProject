@@ -41,6 +41,8 @@ public class Database {
 
     private Admin admin;
 
+    private Pharmacist pharmacist;
+
     
     /**
      * Needed objects will be added.
@@ -128,6 +130,9 @@ public class Database {
 
         //Admin
         allUsers.add(admin);
+
+        //Pharmacist add
+        allUsers.add(pharmacist);
         
         System.out.println(allUsers.getSize());
 
@@ -194,6 +199,14 @@ public class Database {
 
     public void setMedicinePatient(ArrayList<Medicine> medicines){
         this.medicinePatient = medicines;
+    }
+
+    public Pharmacist getPharmacist() {
+        return pharmacist;
+    }
+
+    public void setPharmacist(Pharmacist pharmacist) {
+        this.pharmacist = pharmacist;
     }
 
     public PriorityQueue<Patient> getEmergencyPatients() {

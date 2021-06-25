@@ -24,28 +24,23 @@ public class Pharmacist extends Person {
 
     private ArrayList<Medicine> medicines;
 
+    public static int idNo = 501;
+
     public Pharmacist(Database database) {
         super();
-        this.name = null;
-        this.surname = null;
-        this.age = 0;
-        this.gender = 'u';
-        this.address = null;
-        this.setJobType(JobType.Pharmacist);
+        databaseRef = database;
+        setJobType(JobType.Pharmacist);
         this.recipeList = new ArrayList<>();
         this.medicines = new ArrayList<>();
-        databaseRef = database;
+        setId(idNo);
+        ++idNo;
     }
 
-    public Pharmacist(String name, String surname, int age, char gender, Address address, int id, Database database) {
-        super(name, surname, age, gender, address, id);
-        this.name = name;
-        this.surname = surname;
-        this.age = age;
-        this.gender = gender;
-        this.address = address;
+    public Pharmacist(String name, String surname, int age, char gender, Address address, Database database) {
+        super(name, surname, age, gender, address, idNo);
         this.setJobType(JobType.Pharmacist);
         databaseRef = database;
+        ++idNo;
     }
 
     public void seePrescription(ArrayList<Medicine> recipeList) {

@@ -169,4 +169,8 @@ public class addUsers {
     public void addAdmin(Database database){
         database.setAdmin(new Admin(database));
     }
+
+    public void addPharmacist(Database database){
+        database.setPharmacist(new Pharmacist(database));
+    }
 }

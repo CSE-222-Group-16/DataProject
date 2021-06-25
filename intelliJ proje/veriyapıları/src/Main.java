@@ -16,6 +16,7 @@ public class Main {
         addUser.addChiefPhysician(database);
         addUser.addNurse(database);
         addUser.addTech(database);
+        addUser.addAdmin(database);
         database.allUsersP();
 
 

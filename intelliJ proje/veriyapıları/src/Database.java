@@ -39,6 +39,8 @@ public class Database {
     
     private ArrayList<TechnicianWorker> technicianWorkers;
 
+    private Admin admin;
+
     
     /**
      * Needed objects will be added.
@@ -57,9 +59,9 @@ public class Database {
         chiefPhysician = new ChiefPhysician();
         technicianWorkers = new ArrayList<>();
 
-    /*    floors.add(1); floors.add(2); floors.add(3);floors.add(4);floors.add(4);
+        floors.add(1); floors.add(2); floors.add(3);floors.add(4);floors.add(4);
         Block[] blocks = new Block[]{new Block (1,floors),new Block (2,floors),new Block (3,floors)};
-        blockStructureGraph = new AdjacencyListMatrix<> (3,false,blocks);   */
+        blockStructureGraph = new AdjacencyListMatrix<> (3,false,blocks);
     }
 
     public void setChiefPhysician(ChiefPhysician chiefPhysician){
@@ -123,6 +125,9 @@ public class Database {
         
         //Chief P. added
         allUsers.add(chiefPhysician);
+
+        //Admin
+        allUsers.add(admin);
         
         System.out.println(allUsers.getSize());
 
@@ -190,7 +195,23 @@ public class Database {
     public void setMedicinePatient(ArrayList<Medicine> medicines){
         this.medicinePatient = medicines;
     }
-    
+
+    public PriorityQueue<Patient> getEmergencyPatients() {
+        return emergencyPatients;
+    }
+
+    public void setEmergencyPatients(PriorityQueue<Patient> emergencyPatients) {
+        this.emergencyPatients = emergencyPatients;
+    }
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
+
     public ArrayList<TechnicianWorker> getTechnicianWorkers() {
         return technicianWorkers;
     }

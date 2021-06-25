@@ -163,6 +163,10 @@ public class addUsers {
     
 
     public void addChiefPhysician(Database database){
-        new ChiefPhysician("Merve", "Gürler", 55, 'g', new Address(), database);
+        database.setChiefPhysician(new ChiefPhysician("Merve", "Gürler", 55, 'g', new Address(), database));
+    }
+
+    public void addAdmin(Database database){
+        database.setAdmin(new Admin(database));
     }
 }

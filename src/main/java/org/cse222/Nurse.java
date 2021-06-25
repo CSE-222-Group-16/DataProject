@@ -57,6 +57,8 @@ public class Nurse extends Person {
         databaseRef = database;
         setId(idNo);
         ++idNo;
+        setJobType(JobType.Nurse);
+
     }
 
     public Nurse(int id,Database database){
@@ -69,6 +71,8 @@ public class Nurse extends Person {
         this.layerNumber=0;
         databaseRef = database;
         setId(id);
+        setJobType(JobType.Nurse);
+
     }
 
     public Nurse(String name, String surName, int age, char gender, Address address
@@ -81,7 +85,9 @@ public class Nurse extends Person {
         this.blockNumber=blockNumber;
         this.layerNumber=layerNumber;
         databaseRef = database;
-        ++idNo;
+        ++idNo;        
+        setJobType(JobType.Nurse);
+
     }
 
     public void addSurgery(Operation op){

@@ -174,12 +174,10 @@ public class Database {
     }
     
     
-    public Patient getPatientByName(String name){
-        for(Integer d: doctors.keySet())
-            for(Patient ret:doctors.get(d).getPatientList())
-                if(ret.getName().equals(name))
-                    return ret;
-        return null;
+    public Patient getPatientByNo(Integer patientNo){
+        Person p = allPatients.find(new Person(patientNo));
+        if(p instanceof Patient) return (Patient)p;
+        else return null;
     }
     
     public Person findUser(int id){

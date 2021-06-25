@@ -8,13 +8,15 @@ public class Admin extends Person {
     public Admin(Database database){
         super();
         databaseRef = database;
+        setId(100);
+        setJobType(JobType.Admin);
     }
 
     public Admin(String name, String surName, int age, char gender,
-                 Address address, int id,Database database){
-        super(name, surName, age, gender, address, id);
+                 Address address,Database database){
+        super(name, surName, age, gender, address, 100);
         databaseRef = database;
-
+        setJobType(JobType.Admin);
     }
 
     public void assignNurseToFloor(Nurse newNurse, int blockNumber, int floorNumber){

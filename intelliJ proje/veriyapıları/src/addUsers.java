@@ -8,6 +8,10 @@ public class addUsers {
         Hashtable<Integer,Doctor> doctors = new Hashtable<>();
 
         doctors.put(Doctor.idNo,new Doctor("Hayri","Tas",29,'b',new Address(),1,1,12,databaseRef));
+        doctors.get(201).getPatientList().add(new Patient("Ayse","Alem",25,'g',new Address(),false,1,false,false));
+        doctors.get(201).getPatientList().add(new Patient("Geri","Alem",25,'g',new Address(),false,1,false,false));
+        doctors.get(201).getPatientList().add(new Patient("Hulya","Alem",25,'g',new Address(),false,1,false,false));
+
         doctors.put(Doctor.idNo,new Doctor("Ali","Yilmaz",56,'b',new Address(),2,1,12,databaseRef));
         doctors.put(Doctor.idNo,new Doctor("Veli","Yilmaz",55,'b',new Address(),3,1,12,databaseRef));
         doctors.put(Doctor.idNo,new Doctor("Handan","Ser",43,'b',new Address(),4,1,12,databaseRef));

@@ -1,3 +1,4 @@
+import java.util.Objects;
 
 public class PatientRecord implements Comparable<PatientRecord>{
 
@@ -105,5 +106,18 @@ public class PatientRecord implements Comparable<PatientRecord>{
         for ( k = 0; k < 45; k++) stringBuilder.append ("-");
         stringBuilder.append ("\n");
         return stringBuilder.toString ();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PatientRecord that = (PatientRecord) o;
+        return doctorId == that.doctorId && Objects.equals(patient, that.patient);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(doctorId, patient);
     }
 }

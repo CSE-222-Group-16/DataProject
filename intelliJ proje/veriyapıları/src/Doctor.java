@@ -220,7 +220,10 @@ public class Doctor extends Person {
     }
 
     private void treat() {
-        if(patientList.peek() == null){
+        System.out.println("Enter doctor ID:");
+        Scanner read = new Scanner(System.in);
+        int doctor = read.nextInt();
+        if(databaseRef.getDoctors().get(doctor).getPatientList().peek() == null){
             System.out.println("There is no patient. You can go home or have a rest.");
             return;
         }

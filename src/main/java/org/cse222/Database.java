@@ -37,7 +37,7 @@ public class Database {
     
     private ArrayList<Nurse> nurses;
     
-    ChiefPhysician chiefPhysician;
+    private ChiefPhysician chiefPhysician;
     
     private ArrayList<TechnicianWorker> technicianWorkers;
 

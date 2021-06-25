@@ -1,5 +1,7 @@
 package org.cse222;
 
+import java.util.Scanner;
+
 public class Consultant extends Person {
 
     private int blockNumber;
@@ -51,7 +53,7 @@ static int idNo = 301;
 
     }
 
-    private void menu(){
+    public void menu(){
         String menuOpt = "notBack";
 
         while(!menuOpt.equals("back")){

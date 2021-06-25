@@ -1,6 +1,7 @@
 package org.cse222;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Pharmacist extends Person {
 
@@ -86,7 +87,7 @@ public class Pharmacist extends Person {
         return databaseRef.getMedicinePharmacy().get(0);
     }
 
-    private void menu(){
+    public void menu(){
         String menuOpt = "notBack";
 
         while(!menuOpt.equals("back")){

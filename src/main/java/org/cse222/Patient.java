@@ -25,7 +25,7 @@ public class Patient extends Person {
 
    public Patient(){
         super();
-        this.recipeList=new ArrayList<String>();
+        this.recipeList=new ArrayList<Medicine>();
         this.needAnalysis=new ArrayList<String>();
         this.analysisResults=new ArrayList<String>();
         this.stayHospitalOrNot=false;
@@ -44,7 +44,7 @@ public class Patient extends Person {
 
     public Patient(String name, String surName, int age, char gender, Address address, boolean stayHospitalOrNot, int roomNumber, boolean needSerum, boolean NeedInjection){
         super(name, surName, age, gender, address, idNo);
-        this.recipeList=new ArrayList<String>();
+        this.recipeList=new ArrayList<Medicine>();
         this.needAnalysis=new ArrayList<String>();
         this.analysisResults=new ArrayList<String>();
         this.NeedInjection=NeedInjection;

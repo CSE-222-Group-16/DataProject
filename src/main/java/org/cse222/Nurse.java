@@ -2,6 +2,7 @@ package org.cse222;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Nurse extends Person {
 
@@ -44,7 +45,7 @@ public class Nurse extends Person {
         this.needSerumPatientsList = needSerumPatientsList;
     }
 
-    public static int idNo = 401;
+//    public static int idNo = 401;
     public Nurse(Database database){
         super();
         this.surgeryList = new ArrayList<Integer>();
@@ -150,7 +151,7 @@ public class Nurse extends Person {
 
     }
 
-    private void menu(){
+    public void menu(){
         String menuOpt = "notBack";
 
         while(!menuOpt.equals("back")){

@@ -41,20 +41,19 @@ public class Main {
 
                 if (loginPerson != null){
                     if (loginPerson.getJobType() == JobType.Doctor){
-                        Doctor doctor = new Doctor(database);
-                        doctor.DoctorMenu();
+                        new Doctor(database).DoctorMenu();
                     } else if(loginPerson.getJobType() == JobType.Admin){
-
+                        new Admin(database).menu();
                     } else if (loginPerson.getJobType() == JobType.ChiefPhysician){
-                        new ChiefPhysician().ChiefPhysicianMenu(new Doctor(database));
+                        new ChiefPhysician(database).ChiefPhysicianMenu(new Doctor(database));
                     } else if(loginPerson.getJobType() == JobType.Consultant){
-
+                        new Consultant().menu();
                     } else if (loginPerson.getJobType() == JobType.Nurse) {
-
+                        new Nurse(database).menu();
                     } else if (loginPerson.getJobType() == JobType.Pharmacist){
-
+                        new Pharmacist(database).menu();
                     } else if (loginPerson.getJobType() == JobType.TechnicianWorker){
-
+                        TechnicianWorker.Menu m;
                     } else {
                         System.out.println("Undefined type!");
                     }

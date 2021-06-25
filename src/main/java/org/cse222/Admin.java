@@ -1,3 +1,5 @@
+package org.cse222;
+
 import java.util.Scanner;
 
 public class Admin extends Person {
@@ -39,7 +41,7 @@ public class Admin extends Person {
 
     }
 
-    private void menu(){
+    public void menu(){
         String menuOpt = "notBack";
 
         while(!menuOpt.equals("back")){

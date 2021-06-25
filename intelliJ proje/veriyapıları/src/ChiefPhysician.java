@@ -130,4 +130,9 @@ public class ChiefPhysician extends Person {
         if(this.dayOff(this)) System.out.println("You can go travel!!!");
         else System.out.println("You can not go travel, wait for available days!!!");
     }
+    
+     @Override
+    public JobType getJobType() {
+        return JobType.ChiefPhysician;
+    }
 }

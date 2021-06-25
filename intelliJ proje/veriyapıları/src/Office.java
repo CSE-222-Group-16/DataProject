@@ -1,4 +1,7 @@
 
+/**
+ * Physical structure of the hospital.
+ */
 public class Office {
 
     private int blockNumber;

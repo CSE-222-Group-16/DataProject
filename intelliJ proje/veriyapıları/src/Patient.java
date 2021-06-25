@@ -1,6 +1,8 @@
 
 import java.util.ArrayList;
-
+/**
+ * Patients are record in the system.
+ */
 public class Patient extends Person {
 
     /*recete list*/

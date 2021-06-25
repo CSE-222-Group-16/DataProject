@@ -3,6 +3,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
+/**
+ * Treats patients.
+ */
 public class Doctor extends Person {
 
     private int countHolidayDays;
@@ -107,6 +110,11 @@ public class Doctor extends Person {
         }
     }
 
+    /**
+     * Makes analysis to the patient given
+     * @param patient
+     * @param analysisList
+     */
     public void makeAnalysis(Patient patient, ArrayList<String> analysisList){
         for(int i=0;i<analysisList.size();++i){
             patient.addAnalysis(analysisList.get(i));
@@ -155,6 +163,9 @@ public class Doctor extends Person {
         this.dayOff = dayOff;
     }
 
+    /**
+     * Menu
+     */
     public void DoctorMenu(){
         String menuOpt = "notBack";
 
@@ -179,6 +190,9 @@ public class Doctor extends Person {
         }
     }
 
+    /**
+     * Dayy of request
+     */
     private void DayOff() {
         System.out.println("Requesting day off from chief physician...\nPlease wait!");
 
@@ -188,6 +202,10 @@ public class Doctor extends Person {
 
         chiefPhysician.ChiefPhysicianMenu(this);
     }
+
+    /**
+     * Prepare recipe
+     */
     private void recipe() {
         System.out.println("Preparing recipe...\nPlease wait!");
 
@@ -198,6 +216,9 @@ public class Doctor extends Person {
         System.out.println("Recipe prepared.");
     }
 
+    /**
+     * Prepare anaylsis
+     */
     private void analysis() {
         System.out.println("Preparing analysis...\nPlease wait!");
 
@@ -209,6 +230,10 @@ public class Doctor extends Person {
         System.out.println("Analysis is done.");
 
     }
+
+    /**
+     * Perepare Test results
+     */
     private void testResults() {
         System.out.println("Preparing test results...\nPlease wait!");
 
@@ -219,6 +244,9 @@ public class Doctor extends Person {
         System.out.println("All test results printed.");
     }
 
+    /**
+     * Treating sub menu, and choosing.
+     */
     private void treat() {
         System.out.println("Enter doctor ID:");
         Scanner read = new Scanner(System.in);

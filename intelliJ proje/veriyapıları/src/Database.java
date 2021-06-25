@@ -82,6 +82,9 @@ public class Database {
         this.doctors = doctors;
     }
     
+    /**
+     * Prints all users.
+     */
     public void printAll() {
 
         System.out.println("Doctors:");
@@ -138,6 +141,12 @@ public class Database {
 
     }
 
+    /**
+     * Searches by names in doctor.
+     * @param name
+     * @param surname
+     * @return
+     */
     public TreeMap<Integer, Doctor> searchByNameAndSurname(String name, String surname){
         TreeMap<Integer, Doctor> foundDoctors = new TreeMap<>();
 
@@ -164,7 +173,11 @@ public class Database {
         return null;
     }
     
-    
+    /**
+     * Finds patient by only name.
+     * @param name
+     * @return
+     */
     public Patient getPatientByName(String name){
         for(Integer d: doctors.keySet())
             for(Patient ret:doctors.get(d).getPatientList())

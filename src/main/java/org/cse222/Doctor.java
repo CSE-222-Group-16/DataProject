@@ -244,7 +244,9 @@ public class Doctor extends Person {
             else if(menuOpt.equalsIgnoreCase("back")) break;
             else System.out.println("Unrecognized option. Try again.");
         }
-        this.patientList.remove();
+
+        //removed patient added to the system
+        databaseRef.getPatientRecords().add(new PatientRecord(this.patientList.remove(),this.getId(),"10-10-2020") );
     }
 
     public void requestDayOff(){
